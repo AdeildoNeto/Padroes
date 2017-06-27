@@ -7,9 +7,33 @@
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>controller.LoginServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CadastrarUsuarioServlet</servlet-name>
+        <servlet-class>controller.CadastrarUsuarioServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditarCadastroServlet</servlet-name>
+        <servlet-class>controller.EditarCadastroServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Menu</servlet-name>
+        <servlet-class>controller.Menu</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CadastrarUsuarioServlet</servlet-name>
+        <url-pattern>/CadastrarUsuarioServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditarCadastroServlet</servlet-name>
+        <url-pattern>/EditarCadastroServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Menu</servlet-name>
+        <url-pattern>/Menu</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

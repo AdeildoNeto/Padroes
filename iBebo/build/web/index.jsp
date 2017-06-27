@@ -29,5 +29,6 @@
                     </div>
                 </form>
             </div>
+            <a href="Menu?acao=Cadastrar_usuario" id="">Cadastrar Usuário</a>
     </body>
 </html>

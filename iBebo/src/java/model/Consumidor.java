@@ -18,6 +18,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
@@ -29,19 +30,14 @@ import javax.xml.bind.annotation.XmlTransient;
 @Entity
 @Table(name = "consumidor")
 @XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "Consumidor.findAll", query = "SELECT c FROM Consumidor c")
-    , @NamedQuery(name = "Consumidor.findByIdConsumidor", query = "SELECT c FROM Consumidor c WHERE c.idConsumidor = :idConsumidor")
-    , @NamedQuery(name = "Consumidor.findByDataNascimentoConsumidor", query = "SELECT c FROM Consumidor c WHERE c.dataNascimentoConsumidor = :dataNascimentoConsumidor")
-    , @NamedQuery(name = "Consumidor.findByCPFconsumidor", query = "SELECT c FROM Consumidor c WHERE c.cPFconsumidor = :cPFconsumidor")
-    , @NamedQuery(name = "Consumidor.findByRGconsumidor", query = "SELECT c FROM Consumidor c WHERE c.rGconsumidor = :rGconsumidor")})
-public class Consumidor implements Serializable {
+@PrimaryKeyJoinColumn(name="idConsumidor", referencedColumnName = "idUsuario")
+public class Consumidor extends Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
-    @Basic(optional = false)
-    @Column(name = "id_consumidor")
-    private Integer idConsumidor;
+  //  @Id
+//    @Basic(optional = false)
+ //   @Column(name = "id_consumidor")
+ //   private Integer idConsumidor;
     @Column(name = "data_nascimento_consumidor")
     private String dataNascimentoConsumidor;
     @Column(name = "CPF_consumidor")
@@ -60,7 +56,7 @@ public class Consumidor implements Serializable {
     public Consumidor() {
     }
 
-    public Consumidor(Integer idConsumidor) {
+/*    public Consumidor(Integer idConsumidor) {
         this.idConsumidor = idConsumidor;
     }
 
@@ -71,7 +67,7 @@ public class Consumidor implements Serializable {
     public void setIdConsumidor(Integer idConsumidor) {
         this.idConsumidor = idConsumidor;
     }
-
+*/
     public String getDataNascimentoConsumidor() {
         return dataNascimentoConsumidor;
     }

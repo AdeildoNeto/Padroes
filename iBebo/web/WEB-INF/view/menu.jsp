@@ -13,5 +13,6 @@
     </head>
     <body>
         <h1>pegou!</h1>
+        <a href="Menu?acao=Editar_cadastro" id="">Editar Cadastro</a>
     </body>
 </html>

@@ -8,8 +8,11 @@ package model;
 import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -33,8 +36,12 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "CartaoCredito.findByCodigoCartaoCredito", query = "SELECT c FROM CartaoCredito c WHERE c.codigoCartaoCredito = :codigoCartaoCredito")})
 public class CartaoCredito implements Serializable {
 
+    @OneToMany(mappedBy = "idCartaoConsumidor")
+    private Collection<Consumidor> consumidorCollection;
+
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id_cartao_credito")
     private Integer idCartaoCredito;
@@ -44,8 +51,7 @@ public class CartaoCredito implements Serializable {
     private String dataValidadeCartaoCredito;
     @Column(name = "codigo_cartao_credito")
     private String codigoCartaoCredito;
-    @OneToMany(mappedBy = "idCartaoConsumidor")
-    private Collection<Consumidor> consumidorCollection;
+    
 
     public CartaoCredito() {
     }
@@ -86,14 +92,7 @@ public class CartaoCredito implements Serializable {
         this.codigoCartaoCredito = codigoCartaoCredito;
     }
 
-    @XmlTransient
-    public Collection<Consumidor> getConsumidorCollection() {
-        return consumidorCollection;
-    }
-
-    public void setConsumidorCollection(Collection<Consumidor> consumidorCollection) {
-        this.consumidorCollection = consumidorCollection;
-    }
+    
 
     @Override
     public int hashCode() {
@@ -118,6 +117,15 @@ public class CartaoCredito implements Serializable {
     @Override
     public String toString() {
         return "model.CartaoCredito[ idCartaoCredito=" + idCartaoCredito + " ]";
+    }
+
+    @XmlTransient
+    public Collection<Consumidor> getConsumidorCollection() {
+        return consumidorCollection;
+    }
+
+    public void setConsumidorCollection(Collection<Consumidor> consumidorCollection) {
+        this.consumidorCollection = consumidorCollection;
     }
     
 }

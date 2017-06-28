@@ -20,28 +20,28 @@
     <body>
         <div id="wrapper" class="">
             <div id="logo" class="">
-              <!--  <img id="imagem_titulo" alt="logo IBebo" src="imagens/LOGO1.png" > -->
+                <!--  <img id="imagem_titulo" alt="logo IBebo" src="imagens/LOGO1.png" > -->
                 <h1 id="titulo_login">IBebo</h1>
                 <p id="titulo_login">PPSOO</p>
             </div>
-           
+
             <div class="container-fluid">
                 <div class="row">
                     <div id="caixa_conteudo">
                         <h3>Cadastro</h3>
                         <div id="mensagem" style="height: 50px;">
-                        <c:if test="${mensagens.existeErros}">
-                            <div id="erro" class="alert">
-                                <ul  id="ul_erro">
-                                    <c:forEach var="erro" items="${mensagens.erros}">
-                                        <li> ${erro} </li>
-                                        </c:forEach>
-                                </ul>
-                            </div>
-                        </c:if>
+                            <c:if test="${mensagens.existeErros}">
+                                <div id="erro" class="alert">
+                                    <ul  id="ul_erro">
+                                        <c:forEach var="erro" items="${mensagens.erros}">
+                                            <li> ${erro} </li>
+                                            </c:forEach>
+                                    </ul>
+                                </div>
+                            </c:if>
                         </div>
-                        <form method="post" action="${pageContext.request.contextPath}/Cadastro_Usuario">
-                        
+                        <form method="post" action="${pageContext.request.contextPath}/CadastrarUsuarioServlet">
+
                             <div class="form-group">
                                 <label for="nome">Nome:</label>
                                 <input type="text" class="form-control" name="nome" id="nome_usuario" value="" placeholder="Digite o nome" required>
@@ -53,6 +53,10 @@
                             <div class="form-group">
                                 <label for="endereco">Endereço:</label>
                                 <input type="text" class="form-control" name="endereco" id="endereco_usuario" value="" placeholder="Digite o endereço" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="bairro">Bairro:</label>
+                                <input type="text" class="form-control" name="bairro" id="bairro_usuario" value="" placeholder="Digite o bairro" required>
                             </div>
                             <div class="form-group">
                                 <label for="cep">CEP:</label>
@@ -69,6 +73,10 @@
                             <div class="form-group">
                                 <label for="UF">UF:</label>
                                 <input type="text" class="form-control" name="UF" id="UF_usuario" value="" placeholder="Digite a UF" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="complemento">Complemento:</label>
+                                <input type="text" class="form-control" name="complemento" id="complemento_usuario" value="" placeholder="Digite o complemento" required>
                             </div>
                             <div class="form-group">
                                 <label for="telefone">Telefone:</label>
@@ -100,14 +108,14 @@
                             </div>
                             <div class="form-group">
                                 <label for="select_sexo">Sexo:</label>
-                                <select class="form-control" name="id_sexo">
+                                <select class="form-control" name="sexo_consumidor">
                                     <option></option>
-                                    <option value="1">Feminino</option>
-                                    <option value="1">Masculino</option>
+                                    <option value="Feminino">Feminino</option>
+                                    <option value="Masculino">Masculino</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <input href="Cadastro_Usuario" type="submit" class="btn btn-default" name="btn_cadastro_usuario" value="Cadastrar"/>
+                                <input href="#" type="submit" class="btn btn-default" name="btn_cadastro_usuario" value="Cadastrar"/>
                                 <input href="#" type="reset" class="btn btn-default" name="btn_limpar_cadastro" value="Limpar"/>
                                 <!-- btn btn-success btn-block -->
                             </div>

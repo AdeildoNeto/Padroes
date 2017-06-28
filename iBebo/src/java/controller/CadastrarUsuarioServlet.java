@@ -5,14 +5,17 @@
  */
 package controller;
 
+import DAO.CartaoDAO;
 import DAO.ConsumidorDAO;
 import DAO.EnderecoDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.CartaoCredito;
 import model.Consumidor;
 import model.Endereco;
 
@@ -38,6 +41,8 @@ public class CadastrarUsuarioServlet extends HttpServlet {
         String nome = request.getParameter("nome");
         String data_nascimento = request.getParameter("data_nascimento");
         String endereco = request.getParameter("endereco");
+        String bairro = request.getParameter("bairro");
+        String complemento = request.getParameter("complemento");
         String cep = request.getParameter("cep");
         String cidade = request.getParameter("cidade");
         String numero = request.getParameter("numero");
@@ -49,52 +54,60 @@ public class CadastrarUsuarioServlet extends HttpServlet {
         String login = request.getParameter("login");
         String senha = request.getParameter("senha");
         String confirma_senha = request.getParameter("confirma_senha");
-        String id_sexo = request.getParameter("id_sexo");
+        String sexo_consumidor = request.getParameter("sexo_consumidor");
         
-        ConsumidorDAO consumidor = new ConsumidorDAO();
+        ConsumidorDAO consumidorDao = new ConsumidorDAO();
         
          if (!senha.equals(confirma_senha)) {
           //  erros.add("Os campos de senha e confirmar senha estão diferentes");
+          response.sendRedirect("WEB-INF/view/erro.jsp");
         }
        // if (!erros.isExisteErros()) {
-            Consumidor user = consumidor.getSingle(login);
+            Consumidor user = consumidorDao.getSingle(login);
             if (user != null) {
               //  erros.add("Login já cadastrado");
+              response.sendRedirect("WEB-INF/view/erro.jsp");
             } else {
                 Consumidor consumidor_cadastro = new Consumidor();
                 Endereco end = new Endereco();
                 EnderecoDAO enderecoDao = new EnderecoDAO();
-
-               // end.setCep(cep);
+                
+                CartaoCredito cartao = new CartaoCredito();
+                CartaoDAO cartaoDao = new CartaoDAO();
+                
+                end.setCepEndereco(cep);
                 end.setCidadeEndereco(cidade);
                 end.setNumeroEndereco(numero);
                 end.setLogradouroEndereco(endereco);
-               // end.set(UF);
-                end.setBairroEndereco(endereco);
-                end.setComplementoEndereco(endereco);
-                end.setEstadoUsuario(endereco);
-                
+                end.setBairroEndereco(bairro);
+                end.setComplementoEndereco(complemento);
+                end.setEstadoUsuario(UF);
+
+                cartao.setNumeroCartaoCredito("12345");
+                cartao.setDataValidadeCartaoCredito("123");
+                cartao.setCodigoCartaoCredito("124");
 
                 consumidor_cadastro.setCPFconsumidor(cpf);
                 consumidor_cadastro.setRGconsumidor(rg);
                 consumidor_cadastro.setEmailUsuario(email);
-               // consumidor_cadastro.set(enderecoDao.inserir(end));
+                consumidor_cadastro.setIdEnderecoUsuario(enderecoDao.inserir(end));
                 consumidor_cadastro.setNomeUsuario(nome);
                 consumidor_cadastro.setTelefoneUsuario(telefone);
-
+                
+                consumidor_cadastro.setIdCartaoConsumidor(cartaoDao.inserir(cartao));
                 consumidor_cadastro.setLoginUsuario(login);
                 consumidor_cadastro.setSenhaUsuario(senha);
-             //   consumidor_cadastro.setTipousuarios(2);
                 consumidor_cadastro.setDataNascimentoConsumidor(data_nascimento);
-              //  consumidor_cadastro.setSexo(id_sexo);
-
-                consumidor.inserir(consumidor_cadastro);
+                consumidor_cadastro.setSexoConsumidor(sexo_consumidor);
+                
+                consumidorDao.inserir(consumidor_cadastro);
              //   erros.add("Usuário Cadastrado");
 
             }
         
         //request.getSession().setAttribute ("mensagens", erros);
         response.sendRedirect("Menu?acao=Cadastrar_usuario");
+       
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

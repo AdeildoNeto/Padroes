@@ -11,6 +11,8 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -30,8 +32,18 @@ import javax.xml.bind.annotation.XmlTransient;
 @Entity
 @Table(name = "consumidor")
 @XmlRootElement
-@PrimaryKeyJoinColumn(name="idConsumidor", referencedColumnName = "idUsuario")
+@PrimaryKeyJoinColumn(name="id_consumidor", referencedColumnName = "id_usuario")
 public class Consumidor extends Usuario implements Serializable {
+
+   
+    @JoinColumn(name = "id_cartao_consumidor", referencedColumnName = "id_cartao_credito")
+    @ManyToOne
+    private CartaoCredito idCartaoConsumidor;
+
+
+    
+    @Column(name = "sexo_consumidor")
+    private String sexoConsumidor;
 
     private static final long serialVersionUID = 1L;
   //  @Id
@@ -46,9 +58,7 @@ public class Consumidor extends Usuario implements Serializable {
     private String rGconsumidor;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idConsumidorCompra")
     private Collection<Compra> compraCollection;
-    @JoinColumn(name = "id_cartao_consumidor", referencedColumnName = "id_cartao_credito")
-    @ManyToOne
-    private CartaoCredito idCartaoConsumidor;
+    
     @JoinColumn(name = "id_consumidor", referencedColumnName = "id_usuario", insertable = false, updatable = false)
     @OneToOne(optional = false)
     private Usuario usuario;
@@ -101,13 +111,7 @@ public class Consumidor extends Usuario implements Serializable {
         this.compraCollection = compraCollection;
     }
 
-    public CartaoCredito getIdCartaoConsumidor() {
-        return idCartaoConsumidor;
-    }
 
-    public void setIdCartaoConsumidor(CartaoCredito idCartaoConsumidor) {
-        this.idCartaoConsumidor = idCartaoConsumidor;
-    }
 
     public Usuario getUsuario() {
         return usuario;
@@ -141,5 +145,24 @@ public class Consumidor extends Usuario implements Serializable {
     public String toString() {
         return "model.Consumidor[ idConsumidor=" + idConsumidor + " ]";
     }
+
+    public String getSexoConsumidor() {
+        return sexoConsumidor;
+    }
+
+    public void setSexoConsumidor(String sexoConsumidor) {
+        this.sexoConsumidor = sexoConsumidor;
+    }
+
+    public CartaoCredito getIdCartaoConsumidor() {
+        return idCartaoConsumidor;
+    }
+
+    public void setIdCartaoConsumidor(CartaoCredito idCartaoConsumidor) {
+        this.idCartaoConsumidor = idCartaoConsumidor;
+    }
+
+
+    
     
 }

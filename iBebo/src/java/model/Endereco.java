@@ -10,6 +10,8 @@ import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -36,8 +38,12 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Endereco.findByEstadoUsuario", query = "SELECT e FROM Endereco e WHERE e.estadoUsuario = :estadoUsuario")})
 public class Endereco implements Serializable {
 
+    @Column(name = "cep_endereco")
+    private String cepEndereco;
+
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id_endereco")
     private Integer idEndereco;
@@ -151,6 +157,14 @@ public class Endereco implements Serializable {
     @Override
     public String toString() {
         return "model.Endereco[ idEndereco=" + idEndereco + " ]";
+    }
+
+    public String getCepEndereco() {
+        return cepEndereco;
+    }
+
+    public void setCepEndereco(String cepEndereco) {
+        this.cepEndereco = cepEndereco;
     }
     
 }

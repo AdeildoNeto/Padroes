@@ -10,6 +10,8 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
@@ -29,10 +31,17 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "usuario")
 @XmlRootElement
 @Inheritance(strategy = InheritanceType.JOINED)
-public class Usuario implements Serializable {
+public abstract class Usuario implements Serializable {
+
+    
+
+    
+    @Column(name = "DTYPE")
+    private String dtype;
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id_usuario")
     private Integer idUsuario;
@@ -46,13 +55,13 @@ public class Usuario implements Serializable {
     private String loginUsuario;
     @Column(name = "senha_usuario")
     private String senhaUsuario;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "usuario")
-    private Estabelecimento estabelecimento;
+   // @OneToOne(cascade = CascadeType.ALL, mappedBy = "usuario")
+  //  private Estabelecimento estabelecimento;
     @JoinColumn(name = "id_endereco_usuario", referencedColumnName = "id_endereco")
     @ManyToOne
     private Endereco idEnderecoUsuario;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "usuario")
-    private Consumidor consumidor;
+  //  @OneToOne(cascade = CascadeType.ALL, mappedBy = "usuario")
+  // private Consumidor consumidor;
 
     public Usuario() {
     }
@@ -109,13 +118,13 @@ public class Usuario implements Serializable {
         this.senhaUsuario = senhaUsuario;
     }
 
-    public Estabelecimento getEstabelecimento() {
+ /*   public Estabelecimento getEstabelecimento() {
         return estabelecimento;
     }
 
     public void setEstabelecimento(Estabelecimento estabelecimento) {
         this.estabelecimento = estabelecimento;
-    }
+    }*/
 
     public Endereco getIdEnderecoUsuario() {
         return idEnderecoUsuario;
@@ -125,13 +134,13 @@ public class Usuario implements Serializable {
         this.idEnderecoUsuario = idEnderecoUsuario;
     }
 
-    public Consumidor getConsumidor() {
+  /*  public Consumidor getConsumidor() {
         return consumidor;
     }
 
     public void setConsumidor(Consumidor consumidor) {
         this.consumidor = consumidor;
-    }
+    }*/
 
     @Override
     public int hashCode() {
@@ -157,5 +166,14 @@ public class Usuario implements Serializable {
     public String toString() {
         return "model.Usuario[ idUsuario=" + idUsuario + " ]";
     }
+
+    public String getDtype() {
+        return dtype;
+    }
+
+    public void setDtype(String dtype) {
+        this.dtype = dtype;
+    }
+
     
 }

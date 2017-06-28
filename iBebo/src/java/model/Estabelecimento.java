@@ -17,6 +17,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
@@ -28,16 +29,15 @@ import javax.xml.bind.annotation.XmlTransient;
 @Entity
 @Table(name = "estabelecimento")
 @XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "Estabelecimento.findAll", query = "SELECT e FROM Estabelecimento e")
-    , @NamedQuery(name = "Estabelecimento.findByIdEstabelecimento", query = "SELECT e FROM Estabelecimento e WHERE e.idEstabelecimento = :idEstabelecimento")})
-public class Estabelecimento implements Serializable {
+@PrimaryKeyJoinColumn(name="id_estabelecimento", referencedColumnName = "id_usuario")
 
-    private static final long serialVersionUID = 1L;
-    @Id
-    @Basic(optional = false)
-    @Column(name = "id_estabelecimento")
-    private Integer idEstabelecimento;
+public class Estabelecimento extends Usuario implements Serializable {
+
+  //  private static final long serialVersionUID = 1L;
+  //  @Id
+ //   @Basic(optional = false)
+  //  @Column(name = "id_estabelecimento")
+ ///   private Integer idEstabelecimento;
     @OneToMany(mappedBy = "idEstabelecimentoProduto")
     private Collection<Produto> produtoCollection;
     @JoinColumn(name = "id_tipo_estabelecimento", referencedColumnName = "id_tipo_estabelecimento")
@@ -50,7 +50,7 @@ public class Estabelecimento implements Serializable {
     public Estabelecimento() {
     }
 
-    public Estabelecimento(Integer idEstabelecimento) {
+  /*  public Estabelecimento(Integer idEstabelecimento) {
         this.idEstabelecimento = idEstabelecimento;
     }
 
@@ -60,7 +60,7 @@ public class Estabelecimento implements Serializable {
 
     public void setIdEstabelecimento(Integer idEstabelecimento) {
         this.idEstabelecimento = idEstabelecimento;
-    }
+    }*/
 
     @XmlTransient
     public Collection<Produto> getProdutoCollection() {

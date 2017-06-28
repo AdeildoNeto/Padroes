@@ -42,11 +42,12 @@ public class ConsumidorDAO {
         try {
             em = EMF.createEntityManager();
             et = em.getTransaction();
-
+            Consumidor consu = entity;
             et.begin();
             em.persist(entity);
             et.commit();
         } catch (Exception ex) {
+            System.out.println("O ERRO É ESSE: " +ex);
             if (et != null && et.isActive()) {
                 et.rollback();
             }

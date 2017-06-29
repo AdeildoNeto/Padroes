@@ -121,7 +121,7 @@ public class Consumidor extends Usuario implements Serializable {
         this.usuario = usuario;
     }
 
-    @Override
+  /*  @Override
     public int hashCode() {
         int hash = 0;
         hash += (idConsumidor != null ? idConsumidor.hashCode() : 0);
@@ -144,7 +144,7 @@ public class Consumidor extends Usuario implements Serializable {
     @Override
     public String toString() {
         return "model.Consumidor[ idConsumidor=" + idConsumidor + " ]";
-    }
+    }*/
 
     public String getSexoConsumidor() {
         return sexoConsumidor;

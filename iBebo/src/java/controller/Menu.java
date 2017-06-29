@@ -5,14 +5,19 @@
  */
 package controller;
 
+import DAO.ConsumidorDAO;
+import DAO.EnderecoDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import model.Consumidor;
+import model.Endereco;
 
 /**
  *
@@ -29,19 +34,28 @@ public class Menu extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher rd = null;
         String acao = request.getParameter("acao");
+        
+        ConsumidorDAO consumidorDao = new ConsumidorDAO();
+        EnderecoDAO enderecoDao = new EnderecoDAO();
+                
         switch (acao) {
+            
             case "Cadastrar_usuario":
                 rd = request.getRequestDispatcher("WEB-INF/view/cadastrar_usuario.jsp");
                 rd.forward(request, response);
-                
+
                 break;
-            case "Editar_cadastro":  
-                Object usuario = request.getSession().getAttribute("usuario");
-                request.setAttribute("consumidorDados", usuario);
+            case "Editar_cadastro":
+                Consumidor consu = (Consumidor) request.getSession().getAttribute("usuarioLogado");
+                Endereco endereco = (Endereco) consu.getIdEnderecoUsuario(); 
+                
+                request.setAttribute("consumidorEnd", enderecoDao.listSingle(endereco.getIdEndereco()));
+                request.setAttribute("consumidorDados", consumidorDao.listSingle(consu.getLoginUsuario()));
                 rd = request.getRequestDispatcher("WEB-INF/view/editar_usuario.jsp");
                 rd.forward(request, response);
                 break;

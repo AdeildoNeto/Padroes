@@ -3,15 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/aldo_neto/NetBeansProjects/iBebo/src/java/DAO/UsuarioDAO.java</file>
-            <file>file:/home/aldo_neto/NetBeansProjects/iBebo/web/WEB-INF/view/menu.jsp</file>
-            <file>file:/home/aldo_neto/NetBeansProjects/iBebo/web/WEB-INF/view/erroBanco.jsp</file>
-            <file>file:/home/aldo_neto/NetBeansProjects/iBebo/src/java/controller/LoginServlet.java</file>
-            <file>file:/home/aldo_neto/NetBeansProjects/iBebo/src/java/model/Consumidor.java</file>
-            <file>file:/home/aldo_neto/NetBeansProjects/iBebo/src/java/DAO/ConsumidorDAO.java</file>
-            <file>file:/home/aldo_neto/NetBeansProjects/iBebo/web/WEB-INF/view/erro.jsp</file>
-            <file>file:/home/aldo_neto/NetBeansProjects/iBebo/web/index.jsp</file>
-            <file>file:/home/aldo_neto/NetBeansProjects/iBebo/src/java/model/Usuario.java</file>
+            <file>file:/C:/Users/carlo/Documents/GitHub/iBebo/iBebo/src/java/controller/EditarCadastroServlet.java</file>
+            <file>file:/C:/Users/carlo/Documents/GitHub/iBebo/iBebo/src/java/controller/Index.java</file>
+            <file>file:/C:/Users/carlo/Documents/GitHub/iBebo/iBebo/src/java/controller/LoginServlet.java</file>
         </group>
     </open-files>
 </project-private>

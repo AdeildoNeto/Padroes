@@ -86,7 +86,7 @@ public class Estabelecimento extends Usuario implements Serializable {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
-
+/*
     @Override
     public int hashCode() {
         int hash = 0;
@@ -111,5 +111,5 @@ public class Estabelecimento extends Usuario implements Serializable {
     public String toString() {
         return "model.Estabelecimento[ idEstabelecimento=" + idEstabelecimento + " ]";
     }
-    
+    */
 }

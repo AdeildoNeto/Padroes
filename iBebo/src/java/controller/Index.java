@@ -1,11 +1,10 @@
-package controller;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-import DAO.UsuarioDAO;
+package controller;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -14,13 +13,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import model.Usuario;
 
 /**
  *
- * @author aldo_neto
+ * @author carlo
  */
-public class LoginServlet extends HttpServlet {
+public class Index extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,42 +31,18 @@ public class LoginServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String login = request.getParameter("login");
-        String senha = request.getParameter("senha");
-        RequestDispatcher rd = null;
+        
+        HttpSession session = request.getSession(false);
+        RequestDispatcher rd;
 
-        UsuarioDAO dao = new UsuarioDAO();
-
-        Usuario usuario = dao.getSingle(login);
-
-        if (usuario != null) {
-
-            if (usuario.getSenhaUsuario().equals(senha)) {
-                HttpSession session = request.getSession();
-                session.setAttribute("usuarioLogado", usuario);
-
-                switch (usuario.getDtype()) {
-                    case "Consumidor":
-
-                        rd = request.getRequestDispatcher("WEB-INF/view/menu.jsp");
-                        break;
-
-                    case "Estabelecimento":
-
-                        rd = request.getRequestDispatcher("WEB-INF/view/menu.jsp");
-                        break;
-                }
-
-            } else {
-                rd = request.getRequestDispatcher("WEB-INF/view/erro.jsp");
-            }
-
+        if (session == null) {
+            rd = request.getRequestDispatcher("index.jsp");
+            rd.forward(request, response);
         } else {
-            rd = request.getRequestDispatcher("WEB-INF/view/erroBanco.jsp");
+            rd = request.getRequestDispatcher("menu.jsp");
+            rd.forward(request, response);
 
         }
-
-        rd.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -98,8 +72,6 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-
-
     }
 
     /**

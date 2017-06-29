@@ -5,6 +5,7 @@
  */
 package DAO;
 
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -35,6 +36,17 @@ public class ConsumidorDAO {
         return null;
         }
     }
+     
+     public List<Consumidor> listSingle(String login) {
+        EntityManager em = EMF.createEntityManager();
+        
+        String jpql = "SELECT u FROM Consumidor u where u.loginUsuario = ?1";
+        Query query = em.createQuery(jpql);
+        query.setParameter(1, login);
+        
+        return (List<Consumidor>) query.getResultList();
+    }
+     
       public Consumidor inserir(Consumidor entity) {
         EntityManager em = null;
         EntityTransaction et = null;
@@ -42,7 +54,7 @@ public class ConsumidorDAO {
         try {
             em = EMF.createEntityManager();
             et = em.getTransaction();
-            Consumidor consu = entity;
+            
             et.begin();
             em.persist(entity);
             et.commit();
@@ -59,6 +71,30 @@ public class ConsumidorDAO {
 
         return entity;
 
+    }
+      
+       public Consumidor atualizar(Consumidor entity) {
+       EntityManager em = null;
+        EntityTransaction et = null;
+
+        try {
+            em = EMF.createEntityManager();
+            et = em.getTransaction();
+
+            et.begin();
+            em.merge(entity);
+            et.commit();
+        } catch (Exception ex) {
+            if (et != null && et.isActive()) {
+                et.rollback();
+            }
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+
+        return entity;
     }
     
 }

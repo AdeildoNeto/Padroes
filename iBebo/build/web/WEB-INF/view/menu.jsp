@@ -3,7 +3,7 @@
     Created on : Jun 27, 2017, 3:10:31 PM
     Author     : aldo_neto
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,7 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>pegou!</h1>
-        <a href="Menu?acao=Editar_cadastro" id="">Editar Cadastro</a>
+        <h1> Bem vindo ${sessionScope.usuarioLogado.nomeUsuario}! </h1>
     </body>
 </html>

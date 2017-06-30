@@ -106,7 +106,7 @@ public class CadastrarUsuarioServlet extends HttpServlet {
             }
         
         //request.getSession().setAttribute ("mensagens", erros);
-        response.sendRedirect("Menu?acao=Cadastrar_usuario");
+        response.sendRedirect("Menu?acao=index");
        
     }
 

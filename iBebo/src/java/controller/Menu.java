@@ -59,6 +59,10 @@ public class Menu extends HttpServlet {
                 rd = request.getRequestDispatcher("WEB-INF/view/editar_usuario.jsp");
                 rd.forward(request, response);
                 break;
+            case "index":
+                rd = request.getRequestDispatcher("index.jsp");
+                rd.forward(request, response);
+                break;
             default:
                 rd = request.getRequestDispatcher("WEB-INF/view/erro.jsp");
                 rd.forward(request, response);

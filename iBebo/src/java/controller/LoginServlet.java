@@ -50,7 +50,7 @@ public class LoginServlet extends HttpServlet {
                 switch (usuario.getDtype()) {
                     case "Consumidor":
 
-                        rd = request.getRequestDispatcher("WEB-INF/view/menu.jsp");
+                        rd = request.getRequestDispatcher("Menu?acao=minha_conta");
                         break;
 
                     case "Estabelecimento":

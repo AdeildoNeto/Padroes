@@ -44,77 +44,32 @@
                             
                         <form method="post" action="${pageContext.request.contextPath}/EditarCadastroServlet">
                         <c:forEach var="consumidor" items="${consumidorDados}">
-                            <div class="form-group">
-                                <label for="nome">Nome:</label>
-                                <input type="text" class="form-control" name="nome" id="nome_usuario" value="${consumidor.nomeUsuario}" placeholder="Digite o nome" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="data_nascimento">Data de nascimento:</label>
-                                <input type="text" class="form-control" name="data_nascimento" id="data_nascimento_usuario" value="${consumidor.dataNascimentoConsumidor}" placeholder="Digite a data de nascimento" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="telefone">Telefone:</label>
-                                <input type="tel" class="form-control" name="telefone" id="telefone_usuario" value="${consumidor.telefoneUsuario}" placeholder="Digite o telefone" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email:</label>
-                                <input type="email" class="form-control" name="email" id="email_usuario" value="${consumidor.emailUsuario}" placeholder="Digite o email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="cpf">CPF:</label>
-                                <input type="text" class="form-control" name="cpf" id="cpf_usuario" value="${consumidor.CPFconsumidor}" placeholder="Digite o CPF" disabled>
-                            </div>
-                            <div class="form-group">
-                                <label for="rg">RG:</label>
-                                <input type="text" class="form-control" name="rg" id="rg_usuario" value="${consumidor.RGconsumidor}" placeholder="Digite o RG" disabled>
-                            </div>
-                            <div class="form-group">
-                                <label for="login">Login:</label>
-                                <input type="text" class="form-control" name="login" id="login_usuario" value="${consumidor.loginUsuario}" placeholder="Digite o Login" disabled>
-                            </div>
-                            <div class="form-group">
-                                <label for="senha">Senha:</label>
-                                <input type="password" class="form-control" name="senha" id="senha_usuario" value="" placeholder="Digite a senha" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="confirma_senha">Confirmar senha:</label>
-                                <input type="password" class="form-control" name="confirma_senha" id="confirma_senha_usuario" value="" placeholder="Confirme a senha" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="select_sexo">Sexo:</label>
-                                <select class="form-control" name="id_sexo">
-                                    <option></option>
-                                    <option value="Feminino">Feminino</option>
-                                    <option value="Masculino">Masculino</option>
-                                </select>
-                            </div>
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                             
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
                             </c:forEach>
                             
                             <c:forEach var="end" items="${consumidorEnd}">
-                            <div class="form-group">
-                                <label for="endereco">Endereço:</label>
-                                <input type="text" class="form-control" name="endereco" id="endereco_usuario" value="${end.logradouroEndereco}" placeholder="Digite o endereço" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="numero">Número:</label>
-                                <input type="text" class="form-control" name="numero" id="numero_usuario" value="${end.numeroEndereco}" placeholder="Digite o numero" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="complemento">Complemento:</label>
-                                <input type="text" class="form-control" name="complemento" id="complemento_usuario" value="${end.complementoEndereco}" placeholder="Digite o complemento" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="cep">CEP:</label>
-                                <input type="text" class="form-control" name="cep" id="cep_usuario" value="${end.cepEndereco}" placeholder="Digite o cep" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="cidade">Cidade:</label>
-                                <input type="text" class="form-control" name="cidade" id="cidade_usuario" value="${end.cidadeEndereco}" placeholder="Digite a cidade" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="bairro">Bairro:</label>
-                                <input type="text" class="form-control" name="bairro" id="bairro_usuario" value="${end.bairroEndereco}" placeholder="Digite o bairro" required>
-                            </div>
+                           
+                            
+                            
+                            
+                            
+                            
                             <div class="form-group">
                                 <label for="UF">UF:</label>
                                 <input type="text" class="form-control" name="UF" id="UF_usuario" value="${end.estadoUsuario}" placeholder="Digite a UF" required>

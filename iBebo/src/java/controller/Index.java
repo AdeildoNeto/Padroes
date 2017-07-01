@@ -39,7 +39,7 @@ public class Index extends HttpServlet {
             rd = request.getRequestDispatcher("index.jsp");
             rd.forward(request, response);
         } else {
-            rd = request.getRequestDispatcher("menu.jsp");
+            rd = request.getRequestDispatcher("index.jsp");
             rd.forward(request, response);
 
         }

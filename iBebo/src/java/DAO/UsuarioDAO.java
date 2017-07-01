@@ -10,6 +10,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+import model.Endereco;
 import model.Usuario;
 
 /**
@@ -32,6 +33,20 @@ public class UsuarioDAO {
         return usuario;
         }catch(NoResultException e){
         return null;
+        }
+    }
+    
+    public Usuario SingleEnd(Endereco idEndereco) {
+        EntityManager em = EMF.createEntityManager();
+
+        String jpql = "SELECT u FROM Usuario u where u.idEnderecoUsuario = ?1";
+        Query query = em.createQuery(jpql);
+        query.setParameter(1, idEndereco);
+        try {
+            Usuario usuario = (Usuario) query.getSingleResult();
+            return usuario;
+        } catch (NoResultException e) {
+            return null;
         }
     }
     

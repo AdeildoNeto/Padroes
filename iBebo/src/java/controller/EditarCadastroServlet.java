@@ -23,6 +23,8 @@ import model.Endereco;
 import DAO.ConsumidorDAO;
 import DAO.EnderecoDAO;
 import javax.servlet.RequestDispatcher;
+import javax.servlet.http.HttpSession;
+import model.Usuario;
 
 /**
  *
@@ -103,11 +105,13 @@ public class EditarCadastroServlet extends HttpServlet {
 
                 consumidorDao.atualizar(consumidor_cadastro);
                 //erros.add("Cadastro atualizado");
-
+               /* Consumidor consumidor = consumidorDao.getSingle(consumidorSessao.getLoginUsuario());
+                HttpSession session = request.getSession();
+                session.setAttribute("usuarioLogado", consumidor);*/
             
         
       //  request.getSession().setAttribute ("mensagens", erros);
-        response.sendRedirect("Menu?acao=Editar_cadastro");}
+        response.sendRedirect("Menu?acao=minha_conta");}
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

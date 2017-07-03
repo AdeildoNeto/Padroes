@@ -16,7 +16,7 @@
         <meta name="googlebot" content="index,follow,snippet,archive">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>IBEBO - Entrega de bebida online</title>
+        <title>IBebo - Entrega de bebida online</title>
 
         <meta name="keywords" content="">
 
@@ -82,8 +82,16 @@
                                 </div>
 
                                 <div class="login">
-                                    <a href="#" data-toggle="modal" data-target="#login-modal"><i class="fa fa-sign-in"></i> <span class="hidden-xs text-uppercase">Login</span></a>
-                                    <a href="Menu?acao=Cadastrar_usuario"><i class="fa fa-user"></i> <span class="hidden-xs text-uppercase">Cadastre-se</span></a>
+                                    <c:choose>
+                                        <c:when test = "${sessionScope.usuarioLogado != null }">
+                                            <a href="Menu?acao=minha_conta"><i class="fa fa-user"></i> <span class="hidden-xs text-uppercase">${sessionScope.usuarioLogado.nomeUsuario}</span></a>
+                                            <a href="Menu?acao=meus_pedidos"><i class="fa fa-cart-arrow-down"></i> <span class="hidden-xs text-uppercase">Meus pedidos</span></a>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <a href="#" data-toggle="modal" data-target="#login-modal"><i class="fa fa-sign-in"></i> <span class="hidden-xs text-uppercase">Login</span></a>
+                                            <a href="Menu?acao=Cadastrar_usuario"><i class="fa fa-user"></i> <span class="hidden-xs text-uppercase">Cadastre-se</span></a>
+                                        </c:otherwise>
+                                    </c:choose>
                                 </div>
 
                             </div>
@@ -104,8 +112,8 @@
                             <div class="navbar-header">
 
                                 <a class="navbar-brand home" href="index.jsp">
-                                    <img src="img/logo.png" alt="Ibebo logo" class="hidden-xs hidden-sm">
-                                    <img src="img/logo-small.png" alt="Ibebo logo" class="visible-xs visible-sm"><span class="sr-only">IBebo - página inicial</span>
+                                    <img src="img/logo2.png" alt="Ibebo logo" class="hidden-xs hidden-sm">
+                                    <img src="img/logo-small2.png" alt="Ibebo logo" class="visible-xs visible-sm"><span class="sr-only">IBebo - página inicial</span>
                                 </a>
                                 <div class="navbar-buttons">
                                     <button type="button" class="navbar-toggle btn-template-main" data-toggle="collapse" data-target="#navigation">
@@ -119,12 +127,12 @@
                             <div class="navbar-collapse collapse" id="navigation">
 
                                 <ul class="nav navbar-nav navbar-right">
-                                 
+
                                     <!-- ========== FULL WIDTH MEGAMENU ================== -->
-                                   
+
                                     <li class="dropdown use-yamm yamm-fw">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Sobre <b class="caret"></b></a>
-                                        
+
                                         <ul class="dropdown-menu">
                                             <li>
                                                 <div class="yamm-content">
@@ -133,7 +141,7 @@
                                                             <img src="img/template-homepage.png" class="img-responsive hidden-xs" alt="">
                                                         </div>
                                                         <div class="col-sm-3">
-                                                            
+
                                                             <ul>
                                                                 <li><a href="index.html">Quem Somos</a>
                                                                 </li>
@@ -147,8 +155,8 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    
-                                    
+
+
                                     <!-- ========== FULL WIDTH MEGAMENU END ================== -->
 
                                     <li class="dropdown">
@@ -214,7 +222,7 @@
                                 </p>
 
                             </form>
-                            
+
                             <p class="text-center text-muted">Não é cadastrado?</p>
                             <p class="text-center text-muted"><a href="Menu?acao=Cadastrar_usuario"><strong>Cadastre-se agora</strong></a>!</p>
 
@@ -239,11 +247,11 @@
                                 <div class="row">
                                     <div class="col-sm-5 right">
                                         <p>
-                                            <img src="img/logo.png" alt="">
+                                            <img src="img/logo3.png" alt="">
                                         </p>
                                         <h1>Entrega de bebida online</h1>
                                         <p>Cerveja. Whisky. Vodka. Vinho.
-                                           </p>
+                                        </p>
                                     </div>
                                     <div class="col-sm-7">
                                         <img class="img-responsive" src="img/template-homepage.png" alt="">
@@ -267,7 +275,7 @@
 
                                 </div>
                             </div>
-                            
+
                         </div>
                         <!-- /.project owl-slider -->
                     </div>
@@ -293,13 +301,13 @@
                                     </form>
                                 </div>
                             </div>
-                           
+
                         </div>
                     </div>
                 </div>
             </section>
 
-            
+
 
 
             <!-- *** FOOTER ***
@@ -325,10 +333,10 @@
 
                     </div>
                     <!-- /.col-md-3 -->
-                    
+
                     <div class="col-md-3 col-sm-6">
 
-                        
+
 
                     </div>
 
@@ -337,7 +345,7 @@
                         <h4>Contato</h4>
 
                         <p><strong>IFPE - Campus Recife</strong>
-                            
+
                             <br>Recife
                             <br>Pernambuco
                             <br>Brasil
@@ -354,7 +362,7 @@
 
 
 
-                    
+
                     <!-- /.col-md-3 -->
                 </div>
                 <!-- /.container -->

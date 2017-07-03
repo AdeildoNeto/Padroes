@@ -16,7 +16,7 @@
         <meta name="googlebot" content="index,follow,snippet,archive">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>IBEBO - Entrega de bebida online</title>
+        <title>IBebo - Entrega de bebida online</title>
 
         <meta name="keywords" content="">
 
@@ -82,8 +82,16 @@
                                 </div>
 
                                 <div class="login">
-                                    <a href="#" data-toggle="modal" data-target="#login-modal"><i class="fa fa-sign-in"></i> <span class="hidden-xs text-uppercase">Login</span></a>
-                                    <a href="Menu?acao=Cadastrar_usuario"><i class="fa fa-user"></i> <span class="hidden-xs text-uppercase">Cadastre-se</span></a>
+                                    <c:choose>
+                                        <c:when test = "${sessionScope.usuarioLogado != null }">
+                                            <a href="Menu?acao=minha_conta"><i class="fa fa-user"></i> <span class="hidden-xs text-uppercase">${sessionScope.usuarioLogado.nomeUsuario}</span></a>
+                                            <a href="Menu?acao=meus_pedidos"><i class="fa fa-cart-arrow-down"></i> <span class="hidden-xs text-uppercase">Meus pedidos</span></a>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <a href="#" data-toggle="modal" data-target="#login-modal"><i class="fa fa-sign-in"></i> <span class="hidden-xs text-uppercase">Login</span></a>
+                                            <a href="Menu?acao=Cadastrar_usuario"><i class="fa fa-user"></i> <span class="hidden-xs text-uppercase">Cadastre-se</span></a>
+                                        </c:otherwise>
+                                    </c:choose>
                                 </div>
 
                             </div>
@@ -104,8 +112,8 @@
                             <div class="navbar-header">
 
                                 <a class="navbar-brand home" href="index.jsp">
-                                    <img src="img/logo.png" alt="Ibebo logo" class="hidden-xs hidden-sm">
-                                    <img src="img/logo-small.png" alt="Ibebo logo" class="visible-xs visible-sm"><span class="sr-only">IBebo - página inicial</span>
+                                    <img src="img/logo2.png" alt="Ibebo logo" class="hidden-xs hidden-sm">
+                                    <img src="img/logo-small2.png" alt="Ibebo logo" class="visible-xs visible-sm"><span class="sr-only">IBebo - página inicial</span>
                                 </a>
                                 <div class="navbar-buttons">
                                     <button type="button" class="navbar-toggle btn-template-main" data-toggle="collapse" data-target="#navigation">
@@ -319,7 +327,7 @@
                                         <p class="price">R$ ${produto_detalhe.precoProduto}</p>
 
                                         <p class="text-center">
-                                            <button type="submit" class="btn btn-template-main"><i class="fa fa-shopping-cart"></i> Adicionar ao carrinho</button>
+                                            <button type="submit" href="#" class="btn btn-template-main" id="btn_add_carrinho"><i class="fa fa-shopping-cart"></i> Adicionar ao carrinho</button>
                                         </p>
 
                                     </form>
@@ -500,6 +508,17 @@
 
         <!-- owl carousel -->
         <script src="js/owl.carousel.min.js"></script>
+        
+        <script type="text/javascript">
+        function exibirMensagem()
+        {
+            alert("adicionado ao carrinho");
+        }
+
+        var btn = document.getElementById("btn_add_carrinho");
+        btn.addEventListener("click", exibirMensagem);
+    </script>
+
 
 
 

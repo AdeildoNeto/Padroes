@@ -17,7 +17,7 @@
         <meta name="googlebot" content="index,follow,snippet,archive">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>IBEBO - Entrega de bebida online</title>
+        <title>IBebo - Entrega de bebida online</title>
 
         <meta name="keywords" content="">
 
@@ -83,8 +83,16 @@
                                 </div>
 
                                 <div class="login">
-                                    <a href="#" data-toggle="modal" data-target="#login-modal"><i class="fa fa-sign-in"></i> <span class="hidden-xs text-uppercase">Login</span></a>
-                                    <a href="Menu?acao=Cadastrar_usuario"><i class="fa fa-user"></i> <span class="hidden-xs text-uppercase">Cadastre-se</span></a>
+                                    <c:choose>
+                                        <c:when test = "${sessionScope.usuarioLogado != null }">
+                                            <a href="Menu?acao=minha_conta"><i class="fa fa-user"></i> <span class="hidden-xs text-uppercase">${sessionScope.usuarioLogado.nomeUsuario}</span></a>
+                                            <a href="Menu?acao=meus_pedidos"><i class="fa fa-cart-arrow-down"></i> <span class="hidden-xs text-uppercase">Meus pedidos</span></a>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <a href="#" data-toggle="modal" data-target="#login-modal"><i class="fa fa-sign-in"></i> <span class="hidden-xs text-uppercase">Login</span></a>
+                                            <a href="Menu?acao=Cadastrar_usuario"><i class="fa fa-user"></i> <span class="hidden-xs text-uppercase">Cadastre-se</span></a>
+                                        </c:otherwise>
+                                    </c:choose>
                                 </div>
 
                             </div>
@@ -104,9 +112,9 @@
                         <div class="container">
                             <div class="navbar-header">
 
-                                <a class="navbar-brand home" href="${pageContext.request.contextPath}/index.jsp">
-                                    <img src="img/logo.png" alt="Ibebo logo" class="hidden-xs hidden-sm">
-                                    <img src="img/logo-small.png" alt="Universal logo" class="visible-xs visible-sm"><span class="sr-only">IBebo - página inicial</span>
+                                <a class="navbar-brand home" href="index.jsp">
+                                    <img src="img/logo2.png" alt="Ibebo logo" class="hidden-xs hidden-sm">
+                                    <img src="img/logo-small2.png" alt="Ibebo logo" class="visible-xs visible-sm"><span class="sr-only">IBebo - página inicial</span>
                                 </a>
                                 <div class="navbar-buttons">
                                     <button type="button" class="navbar-toggle btn-template-main" data-toggle="collapse" data-target="#navigation">
@@ -117,309 +125,86 @@
                             </div>
                             <!--/.navbar-header -->
 
-                        <div class="navbar-collapse collapse" id="navigation">
+                            <div class="navbar-collapse collapse" id="navigation">
 
-                            <ul class="nav navbar-nav navbar-right">
-                                <li class="dropdown active">
-                                    <a href="javascript: void(0)" class="dropdown-toggle" data-toggle="dropdown">Home <b class="caret"></b></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="index.html">Option 1: Default Page</a>
-                                        </li>
-                                        <li><a href="index2.html">Option 2: Application</a>
-                                        </li>
-                                        <li><a href="index3.html">Option 3: Startup</a>
-                                        </li>
-                                        <li><a href="index4.html">Option 4: Agency</a>
-                                        </li>
-                                        <li><a href="index5.html">Option 5: Portfolio</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown use-yamm yamm-fw">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Features<b class="caret"></b></a>
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <div class="yamm-content">
-                                                <div class="row">
-                                                    <div class="col-sm-6">
-                                                        <img src="img/template-easy-customize.png" class="img-responsive hidden-xs" alt="">
-                                                    </div>
-                                                    <div class="col-sm-3">
-                                                        <h5>Shortcodes</h5>
-                                                        <ul>
-                                                            <li><a href="template-accordions.html">Accordions</a>
-                                                            </li>
-                                                            <li><a href="template-alerts.html">Alerts</a>
-                                                            </li>
-                                                            <li><a href="template-buttons.html">Buttons</a>
-                                                            </li>
-                                                            <li><a href="template-content-boxes.html">Content boxes</a>
-                                                            </li>
-                                                            <li><a href="template-blocks.html">Horizontal blocks</a>
-                                                            </li>
-                                                            <li><a href="template-pagination.html">Pagination</a>
-                                                            </li>
-                                                            <li><a href="template-tabs.html">Tabs</a>
-                                                            </li>
-                                                            <li><a href="template-typography.html">Typography</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-sm-3">
-                                                        <h5>Header variations</h5>
-                                                        <ul>
-                                                            <li><a href="template-header-default.html">Default sticky header</a>
-                                                            </li>
-                                                            <li><a href="template-header-nosticky.html">No sticky header</a>
-                                                            </li>
-                                                            <li><a href="template-header-light.html">Light header</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown use-yamm yamm-fw">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolio <b class="caret"></b></a>
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <div class="yamm-content">
-                                                <div class="row">
-                                                    <div class="col-sm-6">
-                                                        <img src="img/template-homepage.png" class="img-responsive hidden-xs" alt="">
-                                                    </div>
-                                                    <div class="col-sm-3">
-                                                        <h5>Portfolio</h5>
-                                                        <ul>
-                                                            <li><a href="portfolio-2.html">2 columns</a>
-                                                            </li>
-                                                            <li><a href="portfolio-no-space-2.html">2 columns with negative space</a>
-                                                            </li>
-                                                            <li><a href="portfolio-3.html">3 columns</a>
-                                                            </li>
-                                                            <li><a href="portfolio-no-space-3.html">3 columns with negative space</a>
-                                                            </li>
-                                                            <li><a href="portfolio-4.html">4 columns</a>
-                                                            </li>
-                                                            <li><a href="portfolio-no-space-4.html">4 columns with negative space</a>
-                                                            </li>
-                                                            <li><a href="portfolio-detail.html">Portfolio - detail</a>
-                                                            </li>
-                                                            <li><a href="portfolio-detail-2.html">Portfolio - detail 2</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-sm-3">
-                                                        <h5>About</h5>
-                                                        <ul>
-                                                            <li><a href="about.html">About us</a>
-                                                            </li>
-                                                            <li><a href="team.html">Our team</a>
-                                                            </li>
-                                                            <li><a href="team-member.html">Team member</a>
-                                                            </li>
-                                                            <li><a href="services.html">Services</a>
-                                                            </li>
-                                                        </ul>
-                                                        <h5>Marketing</h5>
-                                                        <ul>
-                                                            <li><a href="packages.html">Packages</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <!-- ========== FULL WIDTH MEGAMENU ================== -->
-                                <li class="dropdown use-yamm yamm-fw">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">All Pages <b class="caret"></b></a>
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <div class="yamm-content">
-                                                <div class="row">
-                                                    <div class="col-sm-3">
-                                                        <h5>Home</h5>
-                                                        <ul>
-                                                            <li><a href="index.html">Option 1: Default Page</a>
-                                                            </li>
-                                                            <li><a href="index2.html">Option 2: Application</a>
-                                                            </li>
-                                                            <li><a href="index3.html">Option 3: Startup</a>
-                                                            </li>
-                                                            <li><a href="index4.html">Option 4: Agency</a>
-                                                            </li>
-                                                            <li><a href="index5.html">Option 5: Portfolio</a>
-                                                            </li>
-                                                        </ul>
-                                                        <h5>About</h5>
-                                                        <ul>
-                                                            <li><a href="about.html">About us</a>
-                                                            </li>
-                                                            <li><a href="team.html">Our team</a>
-                                                            </li>
-                                                            <li><a href="team-member.html">Team member</a>
-                                                            </li>
-                                                            <li><a href="services.html">Services</a>
-                                                            </li>
-                                                        </ul>
-                                                        <h5>Marketing</h5>
-                                                        <ul>
-                                                            <li><a href="packages.html">Packages</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-sm-3">
-                                                        <h5>Portfolio</h5>
-                                                        <ul>
-                                                            <li><a href="portfolio-2.html">2 columns</a>
-                                                            </li>
-                                                            <li><a href="portfolio-no-space-2.html">2 columns with negative space</a>
-                                                            </li>
-                                                            <li><a href="portfolio-3.html">3 columns</a>
-                                                            </li>
-                                                            <li><a href="portfolio-no-space-3.html">3 columns with negative space</a>
-                                                            </li>
-                                                            <li><a href="portfolio-4.html">4 columns</a>
-                                                            </li>
-                                                            <li><a href="portfolio-no-space-4.html">4 columns with negative space</a>
-                                                            </li>
-                                                            <li><a href="portfolio-detail.html">Portfolio - detail</a>
-                                                            </li>
-                                                            <li><a href="portfolio-detail-2.html">Portfolio - detail 2</a>
-                                                            </li>
-                                                        </ul>
-                                                        <h5>User pages</h5>
-                                                        <ul>
-                                                            <li><a href="customer-register.html">Register / login</a>
-                                                            </li>
-                                                            <li><a href="customer-orders.html">Orders history</a>
-                                                            </li>
-                                                            <li><a href="customer-order.html">Order history detail</a>
-                                                            </li>
-                                                            <li><a href="customer-wishlist.html">Wishlist</a>
-                                                            </li>
-                                                            <li><a href="customer-account.html">Customer account / change password</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-sm-3">
-                                                        <h5>Shop</h5>
-                                                        <ul>
-                                                            <li><a href="shop-category.html">Category - sidebar right</a>
-                                                            </li>
-                                                            <li><a href="shop-category-left.html">Category - sidebar left</a>
-                                                            </li>
-                                                            <li><a href="shop-category-full.html">Category - full width</a>
-                                                            </li>
-                                                            <li><a href="shop-detail.html">Product detail</a>
-                                                            </li>
-                                                        </ul>
-                                                        <h5>Shop - order process</h5>
-                                                        <ul>
-                                                            <li><a href="shop-basket.html">Shopping cart</a>
-                                                            </li>
-                                                            <li><a href="shop-checkout1.html">Checkout - step 1</a>
-                                                            </li>
-                                                            <li><a href="shop-checkout2.html">Checkout - step 2</a>
-                                                            </li>
-                                                            <li><a href="shop-checkout3.html">Checkout - step 3</a>
-                                                            </li>
-                                                            <li><a href="shop-checkout4.html">Checkout - step 4</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-sm-3">
-                                                        <h5>Contact</h5>
-                                                        <ul>
-                                                            <li><a href="contact.html">Contact</a>
-                                                            </li>
-                                                            <li><a href="contact2.html">Contact - version 2</a>
-                                                            </li>
-                                                            <li><a href="contact3.html">Contact - version 3</a>
-                                                            </li>
-                                                        </ul>
-                                                        <h5>Pages</h5>
-                                                        <ul>
-                                                            <li><a href="text.html">Text page</a>
-                                                            </li>
-                                                            <li><a href="text-left.html">Text page - left sidebar</a>
-                                                            </li>
-                                                            <li><a href="text-full.html">Text page - full width</a>
-                                                            </li>
-                                                            <li><a href="faq.html">FAQ</a>
-                                                            </li>
-                                                            <li><a href="404.html">404 page</a>
-                                                            </li>
-                                                        </ul>
-                                                        <h5>Blog</h5>
-                                                        <ul>
-                                                            <li><a href="blog.html">Blog listing big</a>
-                                                            </li>
-                                                            <li><a href="blog-medium.html">Blog listing medium</a>
-                                                            </li>
-                                                            <li><a href="blog-small.html">Blog listing small</a>
-                                                            </li>
-                                                            <li><a href="blog-post.html">Blog Post</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- /.yamm-content -->
-                                        </li>
-                                    </ul>
-                                </li>
-                                <!-- ========== FULL WIDTH MEGAMENU END ================== -->
+                                <ul class="nav navbar-nav navbar-right">
 
-                                <li class="dropdown">
+                                    <!-- ========== FULL WIDTH MEGAMENU ================== -->
+
+                                    <li class="dropdown use-yamm yamm-fw">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Sobre <b class="caret"></b></a>
+
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <div class="yamm-content">
+                                                    <div class="row">
+                                                        <div class="col-sm-6">
+                                                            <img src="img/template-homepage.png" class="img-responsive hidden-xs" alt="">
+                                                        </div>
+                                                        <div class="col-sm-3">
+
+                                                            <ul>
+                                                                <li><a href="index.html">Quem Somos</a>
+                                                                </li>
+                                                                <li><a href="index2.html">Equipe</a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- /.yamm-content -->
+                                            </li>
+                                        </ul>
+                                    </li>
+
+
+                                    <!-- ========== FULL WIDTH MEGAMENU END ================== -->
+
+                                    <li class="dropdown">
                                         <a href="Menu?acao=contato">Contato <b class="caret"></b></a> 
                                     </li>
-                            </ul>
+                                </ul>
+
+                            </div>
+                            <!--/.nav-collapse -->
+
+
+
+                            <div class="collapse clearfix" id="search">
+
+                                <form class="navbar-form" role="search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Search">
+                                        <span class="input-group-btn">
+
+                                            <button type="submit" class="btn btn-template-main"><i class="fa fa-search"></i></button>
+
+                                        </span>
+                                    </div>
+                                </form>
+
+                            </div>
+                            <!--/.nav-collapse -->
 
                         </div>
-                        <!--/.nav-collapse -->
 
-
-
-                        <div class="collapse clearfix" id="search">
-
-                            <form class="navbar-form" role="search">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Search">
-                                    <span class="input-group-btn">
-
-                    <button type="submit" class="btn btn-template-main"><i class="fa fa-search"></i></button>
-
-                </span>
-                                </div>
-                            </form>
-
-                        </div>
-                        <!--/.nav-collapse -->
 
                     </div>
-
+                    <!-- /#navbar -->
 
                 </div>
-                <!-- /#navbar -->
 
-            </div>
+                <!-- *** NAVBAR END *** -->
 
-            <!-- *** NAVBAR END *** -->
+            </header>
 
-        </header>
+            <!-- *** LOGIN MODAL ***
+    _________________________________________________________ -->
 
-        <!-- *** LOGIN MODAL ***
-_________________________________________________________ -->
+            <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
+                <div class="modal-dialog modal-sm">
 
-        <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
-            <div class="modal-dialog modal-sm">
-
-                <div class="modal-content">
+                    <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                             <h4 class="modal-title" id="Login">Login</h4>
@@ -438,16 +223,16 @@ _________________________________________________________ -->
                                 </p>
 
                             </form>
-                            
+
                             <p class="text-center text-muted">Não é cadastrado?</p>
                             <p class="text-center text-muted"><a href="Menu?acao=Cadastrar_usuario"><strong>Cadastre-se agora</strong></a>!</p>
 
                         </div>
                     </div>
+                </div>
             </div>
-        </div>
 
-        <!-- *** LOGIN MODAL END *** -->
+            <!-- *** LOGIN MODAL END *** -->
 
         <div id="heading-breadcrumbs">
             <div class="container">
@@ -594,209 +379,114 @@ _________________________________________________________ -->
         <!-- *** GET IT ***
 _________________________________________________________ -->
 
-        <div id="get-it">
-            <div class="container">
-                <div class="col-md-8 col-sm-12">
-                    <h3>Do you want cool website like this one?</h3>
-                </div>
-                <div class="col-md-4 col-sm-12">
-                    <a href="#" class="btn btn-template-transparent-primary">Buy this template now</a>
-                </div>
-            </div>
-        </div>
+       
 
 
-        <!-- *** GET IT END *** -->
+<!-- *** FOOTER ***
+    _________________________________________________________ -->
+
+            <footer id="footer">
+                <div class="container">
+                    <div class="col-md-3 col-sm-6">
+                        <h4>Sobre</h4>
+
+                        <p>Empresa dedicada a melhorar o seu dia</p>
+
+                        <hr>
+
+                        <hr class="hidden-md hidden-lg hidden-sm">
+
+                    </div>
+                    <!-- /.col-md-3 -->
+
+                    <div class="col-md-3 col-sm-6">
+
+                        <hr class="hidden-md hidden-lg">
+
+                    </div>
+                    <!-- /.col-md-3 -->
+
+                    <div class="col-md-3 col-sm-6">
 
 
-        <!-- *** FOOTER ***
-_________________________________________________________ -->
 
-        <footer id="footer">
-            <div class="container">
-                <div class="col-md-3 col-sm-6">
-                    <h4>About us</h4>
-
-                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-
-                    <hr>
-
-                    <h4>Join our monthly newsletter</h4>
-
-                    <form>
-                        <div class="input-group">
-
-                            <input type="text" class="form-control">
-
-                            <span class="input-group-btn">
-
-                        <button class="btn btn-default" type="button"><i class="fa fa-send"></i></button>
-
-                    </span>
-
-                        </div>
-                        <!-- /input-group -->
-                    </form>
-
-                    <hr class="hidden-md hidden-lg hidden-sm">
-
-                </div>
-                <!-- /.col-md-3 -->
-
-                <div class="col-md-3 col-sm-6">
-
-                    <h4>Blog</h4>
-
-                    <div class="blog-entries">
-                        <div class="item same-height-row clearfix">
-                            <div class="image same-height-always">
-                                <a href="#">
-                                    <img class="img-responsive" src="img/detailsquare.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="name same-height-always">
-                                <h5><a href="#">Blog post name</a></h5>
-                            </div>
-                        </div>
-
-                        <div class="item same-height-row clearfix">
-                            <div class="image same-height-always">
-                                <a href="#">
-                                    <img class="img-responsive" src="img/detailsquare.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="name same-height-always">
-                                <h5><a href="#">Blog post name</a></h5>
-                            </div>
-                        </div>
-
-                        <div class="item same-height-row clearfix">
-                            <div class="image same-height-always">
-                                <a href="#">
-                                    <img class="img-responsive" src="img/detailsquare.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="name same-height-always">
-                                <h5><a href="#">Very very long blog post name</a></h5>
-                            </div>
-                        </div>
                     </div>
 
-                    <hr class="hidden-md hidden-lg">
+                    <div class="col-md-3 col-sm-6">
 
-                </div>
-                <!-- /.col-md-3 -->
+                        <h4>Contato</h4>
 
-                <div class="col-md-3 col-sm-6">
+                        <p><strong>IFPE - Campus Recife</strong>
 
-                    <h4>Contact</h4>
+                            <br>Recife
+                            <br>Pernambuco
+                            <br>Brasil
+                            <br>
+                            <strong>TADS</strong>
+                        </p>
 
-                    <p><strong>Universal Ltd.</strong>
-                        <br>13/25 New Avenue
-                        <br>Newtown upon River
-                        <br>45Y 73J
-                        <br>England
-                        <br>
-                        <strong>Great Britain</strong>
-                    </p>
+                        <a href="Menu?acao=contato" class="btn btn-small btn-template-main">Contato</a>
 
-                    <a href="contact.html" class="btn btn-small btn-template-main">Go to contact page</a>
+                        <hr class="hidden-md hidden-lg hidden-sm">
 
-                    <hr class="hidden-md hidden-lg hidden-sm">
-
-                </div>
-                <!-- /.col-md-3 -->
-
-
-
-                <div class="col-md-3 col-sm-6">
-
-                    <h4>Photostream</h4>
-
-                    <div class="photostream">
-                        <div>
-                            <a href="#">
-                                <img src="img/detailsquare.jpg" class="img-responsive" alt="#">
-                            </a>
-                        </div>
-                        <div>
-                            <a href="#">
-                                <img src="img/detailsquare2.jpg" class="img-responsive" alt="#">
-                            </a>
-                        </div>
-                        <div>
-                            <a href="#">
-                                <img src="img/detailsquare3.jpg" class="img-responsive" alt="#">
-                            </a>
-                        </div>
-                        <div>
-                            <a href="#">
-                                <img src="img/detailsquare3.jpg" class="img-responsive" alt="#">
-                            </a>
-                        </div>
-                        <div>
-                            <a href="#">
-                                <img src="img/detailsquare2.jpg" class="img-responsive" alt="#">
-                            </a>
-                        </div>
-                        <div>
-                            <a href="#">
-                                <img src="img/detailsquare.jpg" class="img-responsive" alt="#">
-                            </a>
-                        </div>
                     </div>
+                    <!-- /.col-md-3 -->
 
+
+
+
+                    <!-- /.col-md-3 -->
                 </div>
-                <!-- /.col-md-3 -->
-            </div>
-            <!-- /.container -->
-        </footer>
-        <!-- /#footer -->
+                <!-- /.container -->
+            </footer>
+            <!-- /#footer -->
 
-        <!-- *** FOOTER END *** -->
+            <!-- *** FOOTER END *** -->
 
-        <!-- *** COPYRIGHT ***
-_________________________________________________________ -->
+            <!-- *** COPYRIGHT ***
+    _________________________________________________________ -->
 
-        <div id="copyright">
-            <div class="container">
-                <div class="col-md-12">
-                    <p class="pull-left">&copy; 2015. Your company / name goes here</p>
-                    <p class="pull-right">Template by <a href="https://bootstrapious.com">Bootstrapious</a> & <a href="https://remoteplease.com">Remote Please</a>
-                         <!-- Not removing these links is part of the license conditions of the template. Thanks for understanding :) If you want to use the template without the attribution links, you can do so after supporting further themes development at https://bootstrapious.com/donate  -->
-                    </p>
+            <div id="copyright">
+                <div class="container">
+                    <div class="col-md-12">
+                        <p class="pull-left">&copy; 2017. IBebo /  PPSOO</p>
+                        <p class="pull-right">Template by <a href="https://bootstrapious.com">Bootstrapious</a> & <a href="https://remoteplease.com">Remote Please</a>
+                            <!-- Not removing these links is part of the license conditions of the template. Thanks for understanding :) If you want to use the template without the attribution links, you can do so after supporting further themes development at https://bootstrapious.com/donate  -->
+                        </p>
 
+                    </div>
                 </div>
             </div>
+            <!-- /#copyright -->
+
+            <!-- *** COPYRIGHT END *** -->
+
+
+
         </div>
-        <!-- /#copyright -->
+        <!-- /#all -->
 
-        <!-- *** COPYRIGHT END *** -->
+        <!-- #### JAVASCRIPT FILES ### -->
 
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script>
+            window.jQuery || document.write('<script src="js/jquery-1.11.0.min.js"><\/script>')
+        </script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
-
-    </div>
-    <!-- /#all -->
-
-
-    <!-- #### JAVASCRIPT FILES ### -->
-
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script>
-        window.jQuery || document.write('<script src="js/jquery-1.11.0.min.js"><\/script>')
-    </script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-
-    <script src="js/jquery.cookie.js"></script>
-    <script src="js/waypoints.min.js"></script>
-    <script src="js/jquery.counterup.min.js"></script>
-    <script src="js/jquery.parallax-1.1.3.js"></script>
-    <script src="js/front.js"></script>
-
-    
+        <script src="js/jquery.cookie.js"></script>
+        <script src="js/waypoints.min.js"></script>
+        <script src="js/jquery.counterup.min.js"></script>
+        <script src="js/jquery.parallax-1.1.3.js"></script>
+        <script src="js/front.js"></script>
 
 
 
-</body>
+        <!-- owl carousel -->
+        <script src="js/owl.carousel.min.js"></script>
+
+
+
+    </body>
 
 </html>

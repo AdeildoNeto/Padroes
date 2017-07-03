@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import model.Usuario;
 
 /**
  *
@@ -32,10 +33,10 @@ public class Index extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        HttpSession session = request.getSession(false);
+       // HttpSession session = request.getSession(false);
         RequestDispatcher rd;
-
-        if (session == null) {
+        Usuario user = (Usuario) request.getSession().getAttribute("usuarioLogado");
+        if (user == null) {
             rd = request.getRequestDispatcher("index.jsp");
             rd.forward(request, response);
         } else {

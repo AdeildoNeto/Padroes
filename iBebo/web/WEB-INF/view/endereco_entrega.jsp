@@ -81,6 +81,7 @@
                                         <c:when test = "${sessionScope.usuarioLogado != null }">
                                             <a href="Menu?acao=minha_conta"><i class="fa fa-user"></i> <span class="hidden-xs text-uppercase">${sessionScope.usuarioLogado.nomeUsuario}</span></a>
                                             <a href="Menu?acao=meus_pedidos"><i class="fa fa-cart-arrow-down"></i> <span class="hidden-xs text-uppercase">Meus pedidos</span></a>
+                                            <a href="LogoutServlet"><i class="fa fa-close"></i> <span class="hidden-xs text-uppercase">Sair</span></a>
                                         </c:when>
                                         <c:otherwise>
                                             <a href="#" data-toggle="modal" data-target="#login-modal"><i class="fa fa-sign-in"></i> <span class="hidden-xs text-uppercase">Login</span></a>
@@ -228,199 +229,198 @@
 
             <!-- *** LOGIN MODAL END *** -->
 
-        <div id="heading-breadcrumbs">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-7">
-                        <h1>Checkout - Address</h1>
-                    </div>
-                    <div class="col-md-5">
-                        <ul class="breadcrumb">
-                            <li><a href="index.html">Home</a>
-                            </li>
-                            <li>Checkout - Address</li>
-                        </ul>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div id="content">
-            <div class="container">
-
-                <div class="row">
-
-                    <div class="col-md-9 clearfix" id="checkout">
-
-                        <div class="box">
-                            <form method="post" action="shop-checkout2.html">
-
-                                <ul class="nav nav-pills nav-justified">
-                                    <li class="active"><a href="#"><i class="fa fa-map-marker"></i><br>Address</a>
-                                    </li>
-                                    <li class="disabled"><a href="#"><i class="fa fa-truck"></i><br>Delivery Method</a>
-                                    </li>
-                                    <li class="disabled"><a href="#"><i class="fa fa-money"></i><br>Payment Method</a>
-                                    </li>
-                                    <li class="disabled"><a href="#"><i class="fa fa-eye"></i><br>Order Review</a>
-                                    </li>
-                                </ul>
-
-                                <div class="content">
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <label for="firstname">Firstname</label>
-                                                <input type="text" class="form-control" id="firstname">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <label for="lastname">Lastname</label>
-                                                <input type="text" class="form-control" id="lastname">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- /.row -->
-
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <label for="company">Company</label>
-                                                <input type="text" class="form-control" id="company">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <label for="street">Street</label>
-                                                <input type="text" class="form-control" id="street">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- /.row -->
-
-                                    <div class="row">
-                                        <div class="col-sm-6 col-md-3">
-                                            <div class="form-group">
-                                                <label for="city">City</label>
-                                                <input type="text" class="form-control" id="city">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 col-md-3">
-                                            <div class="form-group">
-                                                <label for="zip">ZIP</label>
-                                                <input type="text" class="form-control" id="zip">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 col-md-3">
-                                            <div class="form-group">
-                                                <label for="state">State</label>
-                                                <select class="form-control" id="state"></select>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 col-md-3">
-                                            <div class="form-group">
-                                                <label for="country">Country</label>
-                                                <select class="form-control" id="country"></select>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <label for="phone">Telephone</label>
-                                                <input type="text" class="form-control" id="phone">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <label for="email">Email</label>
-                                                <input type="text" class="form-control" id="email">
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <!-- /.row -->
-                                </div>
-
-                                <div class="box-footer">
-                                    <div class="pull-left">
-                                        <a href="shop-basket.html" class="btn btn-default"><i class="fa fa-chevron-left"></i>Back to basket</a>
-                                    </div>
-                                    <div class="pull-right">
-                                        <button type="submit" class="btn btn-template-main">Continue to Delivery Method<i class="fa fa-chevron-right"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
+            <div id="heading-breadcrumbs">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <h1>Confirmar Endereço</h1>
                         </div>
-                        <!-- /.box -->
-
-
-                    </div>
-                    <!-- /.col-md-9 -->
-
-                    <div class="col-md-3">
-
-                        <div class="box" id="order-summary">
-                            <div class="box-header">
-                                <h3>Order summary</h3>
-                            </div>
-                            <p class="text-muted">Shipping and additional costs are calculated based on the values you have entered.</p>
-
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <tbody>
-                                        <tr>
-                                            <td>Order subtotal</td>
-                                            <th>$446.00</th>
-                                        </tr>
-                                        <tr>
-                                            <td>Shipping and handling</td>
-                                            <th>$10.00</th>
-                                        </tr>
-                                        <tr>
-                                            <td>Tax</td>
-                                            <th>$0.00</th>
-                                        </tr>
-                                        <tr class="total">
-                                            <td>Total</td>
-                                            <th>$456.00</th>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                        <div class="col-md-5">
+                            <ul class="breadcrumb">
+                                <li><a href="index.jsp">Home</a>
+                                </li>
+                                <li>Confirmar Endereço</li>
+                            </ul>
 
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="content">
+                <div class="container">
+
+                    <div class="row">
+
+                        <div class="col-md-9 clearfix" id="checkout">
+
+                            <div class="box">
+                                <c:forEach var="end" items="${endereco_confirma}">
+                                    <form method="post" action="shop-checkout2.html">
+
+                                        <ul class="nav nav-pills nav-justified">
+                                            <li class="active"><a href="#"><i class="fa fa-map-marker"></i><br>Endereço</a>
+                                            </li>
+                                            <li class="disabled"><a href="#"><i class="fa fa-truck"></i><br>Entrega</a>
+                                            </li>
+                                            <li class="disabled"><a href="#"><i class="fa fa-money"></i><br>Pagamento</a>
+                                            </li>
+                                            <li class="disabled"><a href="#"><i class="fa fa-eye"></i><br>Confirmar compra</a>
+                                            </li>
+                                        </ul>
+
+                                        <div class="content">
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="firstname">Firstname</label>
+                                                        <input type="text" class="form-control" id="firstname">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="lastname">Lastname</label>
+                                                        <input type="text" class="form-control" id="lastname">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- /.row -->
+
+                                            <div class="row">                                          
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="endereco">Endereço:</label>
+                                                        <input type="text" class="form-control" name="endereco" id="endereco_usuario" value="${end.logradouroEndereco}" placeholder="Digite o endereço" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6 col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="numero">Número:</label>
+                                                        <input type="text" class="form-control" name="numero" id="numero_usuario" value="${end.numeroEndereco}" placeholder="Digite o numero" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6 col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="complemento">Complemento:</label>
+                                                        <input type="text" class="form-control" name="complemento" id="complemento_usuario" value="${end.complementoEndereco}" placeholder="Digite o complemento" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- /.row -->
+
+                                            <div class="row">
+                                                <div class="col-sm-6 col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="bairro">Bairro:</label>
+                                                        <input type="text" class="form-control" name="bairro" id="bairro_usuario" value="${end.bairroEndereco}" placeholder="Digite o bairro" required>
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-sm-6 col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="cep">CEP:</label>
+                                                        <input type="text" class="form-control" name="cep" id="cep_usuario" value="${end.cepEndereco}" placeholder="Digite o cep" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6 col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="cidade">Cidade:</label>
+                                                        <input type="text" class="form-control" name="cidade" id="cidade_usuario" value="${end.cidadeEndereco}" placeholder="Digite a cidade" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6 col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="UF">UF:</label>
+                                                        <input type="text" class="form-control" name="UF" id="UF_usuario" value="${end.estadoUsuario}" placeholder="Digite a UF" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="phone">Telephone</label>
+                                                        <input type="text" class="form-control" id="phone">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="email">Email</label>
+                                                        <input type="text" class="form-control" id="email">
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <!-- /.row -->
+                                        </div>
+
+                                        <div class="box-footer">
+                                            <div class="pull-left">
+                                                <a href="shop-basket.html" class="btn btn-default"><i class="fa fa-chevron-left"></i>Voltar ao carrinho</a>
+                                            </div>
+                                            <div class="pull-right">
+                                                <button type="submit" class="btn btn-template-main">Continuar<i class="fa fa-chevron-right"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </c:forEach>
+                            </div>
+                            <!-- /.box -->
+
+
+                        </div>
+                        <!-- /.col-md-9 -->
+
+                        <div class="col-md-3">
+
+                            <div class="box" id="order-summary">
+                                <div class="box-header">
+                                    <h3>Order summary</h3>
+                                </div>
+                                <p class="text-muted">Shipping and additional costs are calculated based on the values you have entered.</p>
+
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <tbody>
+                                            <tr>
+                                                <td>Order subtotal</td>
+                                                <th>$446.00</th>
+                                            </tr>
+                                            <tr>
+                                                <td>Shipping and handling</td>
+                                                <th>$10.00</th>
+                                            </tr>
+                                            <tr>
+                                                <td>Tax</td>
+                                                <th>$0.00</th>
+                                            </tr>
+                                            <tr class="total">
+                                                <td>Total</td>
+                                                <th>$456.00</th>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <!-- /.col-md-3 -->
 
                     </div>
-                    <!-- /.col-md-3 -->
+                    <!-- /.row -->
 
                 </div>
-                <!-- /.row -->
-
+                <!-- /.container -->
             </div>
-            <!-- /.container -->
-        </div>
-        <!-- /#content -->
+            <!-- /#content -->
 
 
-        <!-- *** GET IT ***
-_________________________________________________________ -->
+            <!-- *** GET IT ***
+    _________________________________________________________ -->
 
-        <div id="get-it">
-            <div class="container">
-                <div class="col-md-8 col-sm-12">
-                    <h3>Do you want cool website like this one?</h3>
-                </div>
-                <div class="col-md-4 col-sm-12">
-                    <a href="#" class="btn btn-template-transparent-primary">Buy this template now</a>
-                </div>
-            </div>
-        </div>
+  
 
 
-        <!-- *** GET IT END *** -->
+            <!-- *** GET IT END *** -->
 
 
             <!-- *** FOOTER ***

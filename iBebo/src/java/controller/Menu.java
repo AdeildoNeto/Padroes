@@ -39,19 +39,20 @@ public class Menu extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     List lista_produtos = new ArrayList();
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher rd = null;
         String acao = request.getParameter("acao");
-        
+
         ConsumidorDAO consumidorDao = new ConsumidorDAO();
         EnderecoDAO enderecoDao = new EnderecoDAO();
         ProdutoDAO produtoDao = new ProdutoDAO();
         TipoDAO tipoDao = new TipoDAO();
         EstabelecimentoDAO estabelecimentoDao = new EstabelecimentoDAO();
-                
+
         switch (acao) {
-            
+
             case "Cadastrar_usuario":
                 rd = request.getRequestDispatcher("WEB-INF/view/cadastrar_usuario.jsp");
                 rd.forward(request, response);
@@ -59,8 +60,8 @@ public class Menu extends HttpServlet {
                 break;
             case "minha_conta":
                 Consumidor consu = (Consumidor) request.getSession().getAttribute("usuarioLogado");
-                Endereco endereco = (Endereco) consu.getIdEnderecoUsuario(); 
-                
+                Endereco endereco = (Endereco) consu.getIdEnderecoUsuario();
+
                 request.setAttribute("consumidorEnd", enderecoDao.listSingle(endereco.getIdEndereco()));
                 request.setAttribute("consumidorDados", consumidorDao.listSingle(consu.getLoginUsuario()));
                 rd = request.getRequestDispatcher("WEB-INF/view/minha_conta.jsp");
@@ -88,7 +89,7 @@ public class Menu extends HttpServlet {
                 rd.forward(request, response);
                 break;
             case "detalhe_produto":
-                Integer id_produto = Integer.parseInt( request.getParameter("id"));
+                Integer id_produto = Integer.parseInt(request.getParameter("id"));
                 request.setAttribute("lista_tipo_detalhe", tipoDao.listar());
                 request.setAttribute("lista_detalhe_prod", produtoDao.getSingle(id_produto));
                 rd = request.getRequestDispatcher("WEB-INF/view/detalhe_produto.jsp");
@@ -98,10 +99,14 @@ public class Menu extends HttpServlet {
                 Integer id_produto_carrinho = Integer.parseInt(request.getParameter("id"));
                 List lista = produtoDao.getSingle(id_produto_carrinho);
                 Object produto = lista.get(0);
-                request.getSession().setAttribute ("mensagens", lista_produtos.add(produto));
+                request.getSession().setAttribute("mensagens", lista_produtos.add(produto));
                 lista_produtos.add(produto);
                 request.setAttribute("detalhe_prod_carrinho", lista_produtos);
                 rd = request.getRequestDispatcher("WEB-INF/view/carrinho_compras.jsp");
+                rd.forward(request, response);
+                break;
+            case "endereco":
+                rd = request.getRequestDispatcher("WEB-INF/view/endereco_entrega.jsp");
                 rd.forward(request, response);
                 break;
             default:

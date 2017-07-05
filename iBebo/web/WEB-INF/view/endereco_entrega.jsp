@@ -1,8 +1,3 @@
-<%-- 
-    Document   : detalhe_produto
-    Created on : 01/07/2017, 00:18:28
-    Author     : carlo
---%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
@@ -127,12 +122,12 @@
                             <div class="navbar-collapse collapse" id="navigation">
 
                                 <ul class="nav navbar-nav navbar-right">
-                                 
+
                                     <!-- ========== FULL WIDTH MEGAMENU ================== -->
-                                   
+
                                     <li class="dropdown use-yamm yamm-fw">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Sobre <b class="caret"></b></a>
-                                        
+
                                         <ul class="dropdown-menu">
                                             <li>
                                                 <div class="yamm-content">
@@ -141,7 +136,7 @@
                                                             <img src="img/template-homepage.png" class="img-responsive hidden-xs" alt="">
                                                         </div>
                                                         <div class="col-sm-3">
-                                                            
+
                                                             <ul>
                                                                 <li><a href="index.html">Quem Somos</a>
                                                                 </li>
@@ -155,8 +150,8 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    
-                                    
+
+
                                     <!-- ========== FULL WIDTH MEGAMENU END ================== -->
 
                                     <li class="dropdown">
@@ -199,7 +194,7 @@
 
             <!-- *** LOGIN MODAL ***
     _________________________________________________________ -->
-            <c:forEach var="produto_detalhe" items="${lista_detalhe_prod}">
+
             <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
                 <div class="modal-dialog modal-sm">
 
@@ -222,7 +217,7 @@
                                 </p>
 
                             </form>
-                            
+
                             <p class="text-center text-muted">Não é cadastrado?</p>
                             <p class="text-center text-muted"><a href="Menu?acao=Cadastrar_usuario"><strong>Cadastre-se agora</strong></a>!</p>
 
@@ -237,17 +232,13 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-7">
-                        <h1>${produto_detalhe.nomeProduto}</h1>
+                        <h1>Checkout - Address</h1>
                     </div>
                     <div class="col-md-5">
                         <ul class="breadcrumb">
-                            <li><a href="${pageContext.request.contextPath}/index.jsp">Home</a>
+                            <li><a href="index.html">Home</a>
                             </li>
-                            <li><a href="${pageContext.request.contextPath}/Menu?acao=estabelecimentos">Estabelecimentos></a>
-                            </li>
-                            <li><a href="${pageContext.request.contextPath}/Menu?acao=menu_produtos">Produtos</a>
-                            </li>
-                            <li>${produto_detalhe.nomeProduto}</li>
+                            <li>Checkout - Address</li>
                         </ul>
 
                     </div>
@@ -260,141 +251,150 @@
 
                 <div class="row">
 
-                    <!-- *** LEFT COLUMN ***
-		   
-                    _________________________________________________________ -->
+                    <div class="col-md-9 clearfix" id="checkout">
 
-                    <div class="col-sm-3">
+                        <div class="box">
+                            <form method="post" action="shop-checkout2.html">
 
-                        <!-- *** MENUS AND FILTERS ***
- _________________________________________________________ -->
-                        <div class="panel panel-default sidebar-menu">
-
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Categorias</h3>
-                            </div>
-
-                            <div class="panel-body">
-                                <ul class="nav nav-pills nav-stacked category-menu">
-                                    <li>
-                                        <a href="shop-category.html">Tudo <span class="badge pull-right"></span></a>
-                                        <ul>
-                                            <c:forEach var="tipo" items="${lista_tipo_detalhe}">
-                                            <li><a href="shop-category.html${tipo.idTipo}">${tipo.nomeTipo}</a>
-                                            </li>
-                                            </c:forEach>
-                                        </ul>
+                                <ul class="nav nav-pills nav-justified">
+                                    <li class="active"><a href="#"><i class="fa fa-map-marker"></i><br>Address</a>
                                     </li>
-                                    
+                                    <li class="disabled"><a href="#"><i class="fa fa-truck"></i><br>Delivery Method</a>
+                                    </li>
+                                    <li class="disabled"><a href="#"><i class="fa fa-money"></i><br>Payment Method</a>
+                                    </li>
+                                    <li class="disabled"><a href="#"><i class="fa fa-eye"></i><br>Order Review</a>
+                                    </li>
                                 </ul>
 
-                            </div>
-                        </div>
-                        <!-- *** MENUS AND FILTERS END *** -->
+                                <div class="content">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label for="firstname">Firstname</label>
+                                                <input type="text" class="form-control" id="firstname">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label for="lastname">Lastname</label>
+                                                <input type="text" class="form-control" id="lastname">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /.row -->
 
-                        <div class="banner">
-                            <a href="https://www.heineken.com/br" target="_blank">
-                                <img src="img/banner.png" alt="Heineken" class="img-responsive">
-                            </a>
-                        </div>
-                        <!-- /.banner -->
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label for="company">Company</label>
+                                                <input type="text" class="form-control" id="company">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label for="street">Street</label>
+                                                <input type="text" class="form-control" id="street">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /.row -->
 
-                    </div>
-                    <!-- /.col-md-3 -->
-                    
-                    
-                    <div class="col-md-9">
-
-                        <p class="goToDescription"><a href="#details" class="scroll-to text-uppercase">Clique para ver os detalhes</a>
-                        </p>
-
-                        <div class="row" id="productMain">
-                            <div class="col-sm-6">
-                                <div id="mainImage">
-                                    <img src="img/detailbig1.jpg" alt="" class="img-responsive">
-                                </div>
-
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="box">
-
-                                    <form>
-                                        <div class="sizes">
-
-                                            <h3>${produto_detalhe.nomeProduto}</h3>
+                                    <div class="row">
+                                        <div class="col-sm-6 col-md-3">
+                                            <div class="form-group">
+                                                <label for="city">City</label>
+                                                <input type="text" class="form-control" id="city">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-3">
+                                            <div class="form-group">
+                                                <label for="zip">ZIP</label>
+                                                <input type="text" class="form-control" id="zip">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-3">
+                                            <div class="form-group">
+                                                <label for="state">State</label>
+                                                <select class="form-control" id="state"></select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-3">
+                                            <div class="form-group">
+                                                <label for="country">Country</label>
+                                                <select class="form-control" id="country"></select>
+                                            </div>
                                         </div>
 
-                                        <p class="price">R$ ${produto_detalhe.precoProduto}</p>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label for="phone">Telephone</label>
+                                                <input type="text" class="form-control" id="phone">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label for="email">Email</label>
+                                                <input type="text" class="form-control" id="email">
+                                            </div>
+                                        </div>
 
-                                        <p class="text-center">
-                                            <a href="${pageContext.request.contextPath}/Menu?acao=carrinho_compras&id=${produto_detalhe.idProduto}" class="btn btn-template-main" id="btn_add_carrinho"><i class="fa fa-shopping-cart"></i> Adicionar ao carrinho</a>
-                                        </p>
-
-                                    </form>
+                                    </div>
+                                    <!-- /.row -->
                                 </div>
 
-                                <div class="row" id="thumbs">
-                                    <div class="col-xs-4">
-                                        <a href="img/detailbig1.jpg" class="thumb">
-                                            <img src="img/detailsquare.jpg" alt="" class="img-responsive">
-                                        </a>
+                                <div class="box-footer">
+                                    <div class="pull-left">
+                                        <a href="shop-basket.html" class="btn btn-default"><i class="fa fa-chevron-left"></i>Back to basket</a>
                                     </div>
-                                    <div class="col-xs-4">
-                                        <a href="img/detailbig2.jpg" class="thumb">
-                                            <img src="img/detailsquare2.jpg" alt="" class="img-responsive">
-                                        </a>
-                                    </div>
-                                    <div class="col-xs-4">
-                                        <a href="img/detailbig3.jpg" class="thumb">
-                                            <img src="img/detailsquare3.jpg" alt="" class="img-responsive">
-                                        </a>
+                                    <div class="pull-right">
+                                        <button type="submit" class="btn btn-template-main">Continue to Delivery Method<i class="fa fa-chevron-right"></i>
+                                        </button>
                                     </div>
                                 </div>
-                            </div>
-
+                            </form>
                         </div>
-
-
-                        <div class="box" id="details">
-                            <p>
-                                <h4>Detalhes do produto</h4>
-                                <p>Colocar detalhes no Banco de dados</p>
-                                <h5>Volume de álcool</h5>
-                                <ul>
-                                    <li>${produto_detalhe.volAlcoolProduto}%</li>
-                                </ul>
-                                <blockquote>
-                                    <p><em>Fabricado por: ${produto_detalhe.marcaProduto}</em>
-                                    </p>
-                                </blockquote>
-                        </div>
-
-                        <div class="box social" id="product-social">
-                            <h4>Mostrar aos amigos</h4>
-                            <p>
-                                <a href="#" class="external facebook" data-animate-hover="pulse"><i class="fa fa-facebook"></i></a>
-                                <a href="#" class="external gplus" data-animate-hover="pulse"><i class="fa fa-google-plus"></i></a>
-                                <a href="#" class="external twitter" data-animate-hover="pulse"><i class="fa fa-twitter"></i></a>
-                                <a href="#" class="email" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a>
-                            </p>
-                        </div>
-
-               
+                        <!-- /.box -->
 
 
                     </div>
                     <!-- /.col-md-9 -->
 
+                    <div class="col-md-3">
 
-                    <!-- *** LEFT COLUMN END *** -->
+                        <div class="box" id="order-summary">
+                            <div class="box-header">
+                                <h3>Order summary</h3>
+                            </div>
+                            <p class="text-muted">Shipping and additional costs are calculated based on the values you have entered.</p>
 
-                    <!-- *** RIGHT COLUMN ***
-		  _________________________________________________________ -->
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td>Order subtotal</td>
+                                            <th>$446.00</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Shipping and handling</td>
+                                            <th>$10.00</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Tax</td>
+                                            <th>$0.00</th>
+                                        </tr>
+                                        <tr class="total">
+                                            <td>Total</td>
+                                            <th>$456.00</th>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
 
-                    
+                        </div>
+
+                    </div>
                     <!-- /.col-md-3 -->
-
-                    <!-- *** RIGHT COLUMN END *** -->
 
                 </div>
                 <!-- /.row -->
@@ -405,8 +405,25 @@
         <!-- /#content -->
 
 
-            </c:forEach>
-        <!-- *** FOOTER ***
+        <!-- *** GET IT ***
+_________________________________________________________ -->
+
+        <div id="get-it">
+            <div class="container">
+                <div class="col-md-8 col-sm-12">
+                    <h3>Do you want cool website like this one?</h3>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                    <a href="#" class="btn btn-template-transparent-primary">Buy this template now</a>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- *** GET IT END *** -->
+
+
+            <!-- *** FOOTER ***
     _________________________________________________________ -->
 
             <footer id="footer">
@@ -429,10 +446,10 @@
 
                     </div>
                     <!-- /.col-md-3 -->
-                    
+
                     <div class="col-md-3 col-sm-6">
 
-                        
+
 
                     </div>
 
@@ -441,7 +458,7 @@
                         <h4>Contato</h4>
 
                         <p><strong>IFPE - Campus Recife</strong>
-                            
+
                             <br>Recife
                             <br>Pernambuco
                             <br>Brasil
@@ -458,7 +475,7 @@
 
 
 
-                    
+
                     <!-- /.col-md-3 -->
                 </div>
                 <!-- /.container -->
@@ -508,9 +525,6 @@
 
         <!-- owl carousel -->
         <script src="js/owl.carousel.min.js"></script>
-        
-      
-
 
 
 

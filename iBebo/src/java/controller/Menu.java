@@ -12,6 +12,7 @@ import DAO.ProdutoDAO;
 import DAO.TipoDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -37,7 +38,7 @@ public class Menu extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-
+    List lista_produtos = new ArrayList();
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher rd = null;
@@ -91,6 +92,16 @@ public class Menu extends HttpServlet {
                 request.setAttribute("lista_tipo_detalhe", tipoDao.listar());
                 request.setAttribute("lista_detalhe_prod", produtoDao.getSingle(id_produto));
                 rd = request.getRequestDispatcher("WEB-INF/view/detalhe_produto.jsp");
+                rd.forward(request, response);
+                break;
+            case "carrinho_compras":
+                Integer id_produto_carrinho = Integer.parseInt(request.getParameter("id"));
+                List lista = produtoDao.getSingle(id_produto_carrinho);
+                Object produto = lista.get(0);
+                request.getSession().setAttribute ("mensagens", lista_produtos.add(produto));
+                lista_produtos.add(produto);
+                request.setAttribute("detalhe_prod_carrinho", lista_produtos);
+                rd = request.getRequestDispatcher("WEB-INF/view/carrinho_compras.jsp");
                 rd.forward(request, response);
                 break;
             default:

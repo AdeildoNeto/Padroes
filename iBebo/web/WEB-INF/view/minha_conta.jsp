@@ -263,8 +263,8 @@
 
                         <div class="col-md-9 clearfix" id="customer-account">
 
-                            <p class="lead">Altere seus dados pessoais</p>
-                            <p class="text-muted">${sessionScope.usuarioLogado.nomeUsuario}</p>
+                            <p class="lead">Dados Pessoais</p>
+                            <p class="text-muted" style="font-size: 20px;">Olá, ${sessionScope.usuarioLogado.nomeUsuario}!</p>
 
                             <div class="box">
 
@@ -272,33 +272,34 @@
                                     <h3 class="text-uppercase">Alterar senha</h3>
                                 </div>
 
-                                <form>
+                                <form method="post" action="${pageContext.request.contextPath}/AlterarSenhaServlet">
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="form-group">
-                                                <label for="password_old">Old password</label>
-                                                <input type="password" class="form-control" id="password_old">
+                                                <label for="password_old">Senha Antiga</label>
+                                                <input type="password" class="form-control" id="password_old" name="senha_antiga">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="form-group">
-                                                <label for="password_1">New password</label>
-                                                <input type="password" class="form-control" id="password_1">
+                                                <label for="password_1">Nova Senha</label>
+                                                <input type="password" class="form-control" id="password_1" name="nova_senha">
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group">
-                                                <label for="password_2">Retype new password</label>
-                                                <input type="password" class="form-control" id="password_2">
+                                                <label for="password_2">Confirme Nova Senha</label>
+                                                <input type="password" class="form-control" id="password_2" name="confirma_senha">
                                             </div>
                                         </div>
                                     </div>
                                     <!-- /.row -->
 
                                     <div class="text-center">
-                                        <button type="submit" class="btn btn-template-main"><i class="fa fa-save"></i> Save new password</button>
+                                        <button type="submit" class="btn btn-template-main"><i class="fa fa-save"></i> Salvar nova senha
+                                        </button>
                                     </div>
                                 </form>
 
@@ -447,23 +448,23 @@
                             <div class="panel panel-default sidebar-menu">
 
                                 <div class="panel-heading">
-                                    <h3 class="panel-title">Customer section</h3>
+                                    <h3 class="panel-title">Menu</h3>
                                 </div>
 
                                 <div class="panel-body">
 
                                     <ul class="nav nav-pills nav-stacked">
                                         <li class="active">
-                                            <a href="customer-orders.html"><i class="fa fa-list"></i> My orders</a>
+                                            <a href="customer-orders.html"><i class="fa fa-list"></i> Meus pedidos</a>
                                         </li>
                                         <li>
-                                            <a href="customer-wishlist.html"><i class="fa fa-heart"></i> My wishlist</a>
+                                            <a href="customer-wishlist.html"><i class="fa fa-heart"></i> Favoritos</a>
                                         </li>
                                         <li>
-                                            <a href="customer-account.html"><i class="fa fa-user"></i> My account</a>
+                                            <a href="customer-account.html"><i class="fa fa-user"></i> Minha conta</a>
                                         </li>
                                         <li>
-                                            <a href="index.html"><i class="fa fa-sign-out"></i> Logout</a>
+                                            <a href="index.html"><i class="fa fa-sign-out"></i> Sair</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -488,17 +489,7 @@
             <!-- *** GET IT ***
     _________________________________________________________ -->
 
-            <div id="get-it">
-                <div class="container">
-                    <div class="col-md-8 col-sm-12">
-                        <h3>Do you want cool website like this one?</h3>
-                    </div>
-                    <div class="col-md-4 col-sm-12">
-                        <a href="#" class="btn btn-template-transparent-primary">Buy this template now</a>
-                    </div>
-                </div>
-            </div>
-
+            
 
             <!-- *** GET IT END *** -->
 

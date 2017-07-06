@@ -59,20 +59,15 @@ public class EditarCadastroServlet extends HttpServlet {
        // String rg = request.getParameter("rg");
         //String login = request.getParameter("login");
         String complemento = request.getParameter("complemento");
-        String senha = request.getParameter("senha");
-        String confirma_senha = request.getParameter("confirma_senha");
+        
         String id_sexo = request.getParameter("id_sexo");
         
         ConsumidorDAO consumidorDao = new ConsumidorDAO();
         Consumidor consumidorSessao = (Consumidor) request.getSession().getAttribute("usuarioLogado");
         Endereco enderecoSessao = consumidorSessao.getIdEnderecoUsuario();
         
-         if (!senha.equals(confirma_senha)) {
-          //  erros.add("Os campos de senha e confirmar senha estão diferentes");
-           RequestDispatcher rd;
-          rd = request.getRequestDispatcher("WEB-INF/view/erro.jsp");
-          rd.forward(request, response);
-        }else{
+    
+       
        // if (!erros.isExisteErros()) {
            // Consumidor user = consumidor.getSingle(login);
                 Consumidor consumidor_cadastro = new Consumidor();
@@ -98,7 +93,7 @@ public class EditarCadastroServlet extends HttpServlet {
                 consumidor_cadastro.setTelefoneUsuario(telefone);
 
                 consumidor_cadastro.setLoginUsuario(consumidorSessao.getLoginUsuario());
-                consumidor_cadastro.setSenhaUsuario(senha);
+                //consumidor_cadastro.setSenhaUsuario(senha);
               //  consumidor_cadastro.setTipousuarios(2);
                 consumidor_cadastro.setDataNascimentoConsumidor(data_nascimento);
                 consumidor_cadastro.setSexoConsumidor(id_sexo);
@@ -111,8 +106,9 @@ public class EditarCadastroServlet extends HttpServlet {
             
         
       //  request.getSession().setAttribute ("mensagens", erros);
-        response.sendRedirect("Menu?acao=minha_conta");}
+        response.sendRedirect("Menu?acao=minha_conta");
     }
+
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

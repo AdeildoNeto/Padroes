@@ -239,13 +239,13 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-7">
-                        <h1>Contact</h1>
+                        <h1>Contato</h1>
                     </div>
                     <div class="col-md-5">
                         <ul class="breadcrumb">
                             <li><a href="index.html">Home</a>
                             </li>
-                            <li>Contact</li>
+                            <li>Contato</li>
                         </ul>
 
                     </div>
@@ -262,12 +262,13 @@
                         <div class="col-md-12">
                             <section>
                                 <div class="heading">
-                                    <h2>We are here to help you</h2>
+                                    <h2> Equipe de Desenvolvimento - iBebo</h2>
                                 </div>
 
-                                <p class="lead">Are you curious about something? Do you have some kind of problem with our products? As am hastily invited settled at limited civilly fortune me. Really spring in extent an by. Judge but built gay party world. Of so am
-                                    he remember although required. Bachelor unpacked be advanced at. Confined in declared marianne is vicinity.</p>
-                                <p>Please feel free to contact us, our customer service center is working for you 24/7.</p>
+                                <p class="lead">Adeildo Neto - apsn@a.recife.ifpe.edu.br<br>
+                                    Aldênio Lima - japl@a.recife.ifpe.edu.br<br>
+                                    Laura Regina - .... <br>
+                                </p>
                             </section>
                         </div>
                     </div>
@@ -282,10 +283,10 @@
                                 <div class="icon">
                                     <i class="fa fa-map-marker"></i>
                                 </div>
-                                <h3>Address</h3>
-                                <p>13/25 New Avenue
-                                    <br>New Heaven, 45Y 73J
-                                    <br>England, <strong>Great Britain</strong>
+                                <h3>Endereço</h3>
+                                <p>IFPE
+                                    <br> Av. Prof. Luís Freire, 500 - Cidade Universitária, Recife - PE, 50740-540
+                                    <br>Recife,  <strong>Brasil</strong>
                                 </p>
                             </div>
                             <!-- /.box-simple -->
@@ -298,9 +299,10 @@
                                 <div class="icon">
                                     <i class="fa fa-phone"></i>
                                 </div>
-                                <h3>Call center</h3>
-                                <p class="text-muted">This number is toll free if calling from Great Britain otherwise we advise you to use the electronic form of communication.</p>
-                                <p><strong>+33 555 444 333</strong>
+                                <h3>Telefone</h3>
+                                <p class="text-muted"></p>
+                                <p><strong>+55 81 99284-9408<br>
+                                           +55 81 99873-1273</strong>
                                 </p>
                             </div>
                             <!-- /.box-simple -->
@@ -602,7 +604,7 @@ _________________________________________________________ -->
 
     <!-- gmaps -->
 
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCr0MbUnH9078xAS1NWZ5QyEmReTys8Obk&callback=initMap"
 
     <script src="js/gmaps.js"></script>
     <script src="js/gmaps.init.js"></script>

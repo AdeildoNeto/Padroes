@@ -27,4 +27,15 @@ public class TipoDAO {
 
         return (List<Tipo>) query.getResultList();
     }
+    
+    public List<Tipo> listarTipo()
+    {
+        EntityManager em = EMF.createEntityManager();
+        
+        String jpa = "SELECT u FROM Tipo u";
+        Query query = em.createQuery(jpa);
+
+        return (List<Tipo>) (TipoDAO) query.getResultList();
+    }
+
 }

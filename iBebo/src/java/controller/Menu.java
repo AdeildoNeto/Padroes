@@ -96,14 +96,17 @@ public class Menu extends HttpServlet {
                 rd.forward(request, response);
                 break;
             case "carrinho_compras":
+                HttpSession session = request.getSession();
+
                 Integer id_produto_carrinho = Integer.parseInt(request.getParameter("id"));
-                List lista = produtoDao.getSingle(id_produto_carrinho);
-                Object produto = lista.get(0);
-                request.getSession().setAttribute("mensagens", lista_produtos.add(produto));
-                lista_produtos.add(produto);
-                request.setAttribute("detalhe_prod_carrinho", lista_produtos);
-                rd = request.getRequestDispatcher("WEB-INF/view/carrinho_compras.jsp");
-                rd.forward(request, response);
+                request.getSession().setAttribute("id_produto", id_produto_carrinho);
+                response.sendRedirect("CarrinhoCompras");
+
+                break;
+            case "menu_produtos_filtro":
+                Integer id_produto_filtrado = Integer.parseInt(request.getParameter("id"));
+                
+
                 break;
             case "endereco":
                 rd = request.getRequestDispatcher("WEB-INF/view/endereco_entrega.jsp");

@@ -7,54 +7,30 @@ public class Pedido
 
 	public static void main(String[] args) 
 	{
-		int opcao;
-		String adicional;
-		
-		System.out.println("Escolha a bebida desejada:");
-		System.out.println("1 - Vodka");
-		System.out.println("2 - Vinho");
-		System.out.println("3 - Whiskey");
-		System.out.println("4 - Cerveja");
-		System.out.println("5 - Enegetico");
-		System.out.println("6 - Agua");
-		System.out.println("7 - Refrigerante");
-		Scanner entrada = new Scanner(System.in);
-		opcao = entrada.nextInt();
+		int opcao = 0;
+		String adicional = null;
+                String pagamento = null;
 		
 		switch(opcao)
 		{
 		case 1:
 			Coquetel meucoquetel = new Vodka();
-			System.out.println("Bebdida escolhida = " + meucoquetel.getNome());
-			System.out.println("Preco" + " = " + meucoquetel.getPreco());
-			System.out.println("Deseja algum adicional ? (Sim/Nao)");
-			Scanner entrada_adicional = new Scanner(System.in);
-			adicional = entrada_adicional.next();
-			
-			if(adicional.equalsIgnoreCase("SIM"))
-			{
-				escolherAdicional(adicional);
-				escolherMeioPagamento();
-				fecharPedido();
-			}
-			else
-			{
-				System.out.println("Pedido fechado sem nenhum adicional");
-				escolherMeioPagamento();
-				fecharPedido();
-			}
+                        escolherMeioPagamento(pagamento);
 			break;
 		
 		case 2:
 			meucoquetel = new Vinho();
-			System.out.println("Bebida escolhida = " + meucoquetel.getNome());
-			System.out.println("Preco"+ " = " + meucoquetel.getPreco());
+                        escolherMeioPagamento(pagamento);
 			break;
 			
 		case 3:
-			meucoquetel = new Whisky();
-			System.out.println("Bebida escolhida = " + meucoquetel.getNome());
-			System.out.println("Preco " + " = " + meucoquetel.getPreco());
+			meucoquetel = new Wiskhey();
+                        escolherMeioPagamento(pagamento);
+			break;
+                        
+                case 4:
+			meucoquetel = new Wiskhey();
+                        escolherMeioPagamento(pagamento);
 			break;
 			
 		default:
@@ -63,7 +39,7 @@ public class Pedido
 		}
 	}
 
-	private static void escolherAdicional(String adicional) 
+/*	private static void escolherAdicional(String adicional) 
 	{
 		int opcao;
 		
@@ -97,16 +73,11 @@ public class Pedido
 				break;
 		}	
 	}
-	
-	private static void escolherMeioPagamento() 
+*/	
+	private static String escolherMeioPagamento(String tipoPagamento) 
 	{
-		//pegar dados do projeto
-	}
-
-	private static void fecharPedido() 
-	{
-		System.out.println("Pedido fechado");
-		//imprimir dados do pedido
-		
+		Pagamento pagamento = new Pagamento();
+                pagamento.escolherTipoPagamento(tipoPagamento);
+                return tipoPagamento;
 	}
 }

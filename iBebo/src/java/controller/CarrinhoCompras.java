@@ -5,6 +5,7 @@
  */
 package controller;
 
+import DAO.TipoDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Endereco;
+import model.Tipo;
 import model.Usuario;
 
 /**
@@ -35,17 +37,23 @@ public class CarrinhoCompras extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
        RequestDispatcher rd;
+       String tipoProduto = request.getParameter("tipo.idTipo");
+       
         Usuario user = (Usuario) request.getSession().getAttribute("usuarioLogado");
         if (user == null) {
             rd = request.getRequestDispatcher("Menu?acao=Cadastrar_usuario");
             rd.forward(request, response);
+            
         } else {
             Endereco endereco = user.getIdEnderecoUsuario();
             List lista_end = new ArrayList();
             lista_end.add(endereco);
+            TipoDAO tipo = new TipoDAO();
+            List<Tipo> listaTipo = tipo.listarTipo();
             request.setAttribute("endereco_confirma", lista_end);
             rd = request.getRequestDispatcher("Menu?acao=endereco");
             rd.forward(request, response);
+            response.sendRedirect("model/Pedido.java");
         }
     }
 

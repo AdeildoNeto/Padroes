@@ -139,6 +139,7 @@ public class Menu extends HttpServlet {
                 rd.forward(request, response);
                 break;
             case "meus_pedidos":
+                request.setAttribute("lista_pedidos", request.getSession().getAttribute("meus_pedidos"));
                 rd = request.getRequestDispatcher("WEB-INF/view/pedidos.jsp");
                 rd.forward(request, response);
                 break;

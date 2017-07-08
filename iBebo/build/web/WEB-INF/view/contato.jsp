@@ -267,7 +267,7 @@
 
                                 <p class="lead">Adeildo Neto - apsn@a.recife.ifpe.edu.br<br>
                                     Aldênio Lima - japl@a.recife.ifpe.edu.br<br>
-                                    Laura Regina - .... <br>
+                                    Laura Regina - lrmo@a.recife.ifpe.edu.br <br>
                                 </p>
                             </section>
                         </div>
@@ -315,12 +315,12 @@
                                 <div class="icon">
                                     <i class="fa fa-envelope"></i>
                                 </div>
-                                <h3>Electronic support</h3>
-                                <p class="text-muted">Please feel free to write an email to us or to use our electronic ticketing system.</p>
+                                <h3>Suporte online</h3>
+                                <p class="text-muted">Sinta-se a vontade para nos contactar via e-mail</p>
                                 <ul class="list-style-none">
-                                    <li><strong><a href="mailto:">info@fakeemail.com</a></strong>
+                                    <li><strong><a href="mailto:">ibebo@gmail.com</a></strong>
                                     </li>
-                                    <li><strong><a href="#">Ticketio</a></strong> - our ticketing support platform</li>
+                                    
                                 </ul>
                             </div>
                             <!-- /.box-simple -->
@@ -335,7 +335,7 @@
 
                         <div class="col-md-12">
                             <div class="heading">
-                                <h2>Contact form</h2>
+                                <h2>Formulário para contato</h2>
                             </div>
                         </div>
 
@@ -344,13 +344,13 @@
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label for="firstname">Firstname</label>
+                                            <label for="firstname">Nome</label>
                                             <input type="text" class="form-control" id="firstname">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label for="lastname">Lastname</label>
+                                            <label for="lastname">Sobrenome</label>
                                             <input type="text" class="form-control" id="lastname">
                                         </div>
                                     </div>
@@ -362,19 +362,19 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label for="subject">Subject</label>
+                                            <label for="subject">Assunto</label>
                                             <input type="text" class="form-control" id="subject">
                                         </div>
                                     </div>
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <label for="message">Message</label>
+                                            <label for="message">Mensagem</label>
                                             <textarea id="message" class="form-control"></textarea>
                                         </div>
                                     </div>
 
                                     <div class="col-sm-12 text-center">
-                                        <button type="submit" class="btn btn-template-main"><i class="fa fa-envelope-o"></i> Send message</button>
+                                        <button type="submit" class="btn btn-template-main"><i class="fa fa-envelope-o"></i> Enviar e-mail</button>
 
                                     </div>
                                 </div>
@@ -402,16 +402,7 @@
         <!-- *** GET IT ***
 _________________________________________________________ -->
 
-        <div id="get-it">
-            <div class="container">
-                <div class="col-md-8 col-sm-12">
-                    <h3>Do you want cool website like this one?</h3>
-                </div>
-                <div class="col-md-4 col-sm-12">
-                    <a href="#" class="btn btn-template-transparent-primary">Buy this template now</a>
-                </div>
-            </div>
-        </div>
+        
 
 
         <!-- *** GET IT END *** -->
@@ -423,13 +414,16 @@ _________________________________________________________ -->
         <footer id="footer">
             <div class="container">
                 <div class="col-md-3 col-sm-6">
-                    <h4>About us</h4>
+                    <h4>Sobre a iBebo</h4>
 
-                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+                    <p>
+                        Empresa voltada para facilitar sua happy hour, para que você não necessite mais
+                       se deloscar para comprar suas bebidas
+                    </p>
 
                     <hr>
 
-                    <h4>Join our monthly newsletter</h4>
+                    <h4>Assine nossa newsletter mensal</h4>
 
                     <form>
                         <div class="input-group">
@@ -453,43 +447,6 @@ _________________________________________________________ -->
 
                 <div class="col-md-3 col-sm-6">
 
-                    <h4>Blog</h4>
-
-                    <div class="blog-entries">
-                        <div class="item same-height-row clearfix">
-                            <div class="image same-height-always">
-                                <a href="#">
-                                    <img class="img-responsive" src="img/detailsquare.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="name same-height-always">
-                                <h5><a href="#">Blog post name</a></h5>
-                            </div>
-                        </div>
-
-                        <div class="item same-height-row clearfix">
-                            <div class="image same-height-always">
-                                <a href="#">
-                                    <img class="img-responsive" src="img/detailsquare.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="name same-height-always">
-                                <h5><a href="#">Blog post name</a></h5>
-                            </div>
-                        </div>
-
-                        <div class="item same-height-row clearfix">
-                            <div class="image same-height-always">
-                                <a href="#">
-                                    <img class="img-responsive" src="img/detailsquare.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="name same-height-always">
-                                <h5><a href="#">Very very long blog post name</a></h5>
-                            </div>
-                        </div>
-                    </div>
-
                     <hr class="hidden-md hidden-lg">
 
                 </div>
@@ -499,62 +456,20 @@ _________________________________________________________ -->
 
                     <h4>Contact</h4>
 
-                    <p><strong>Universal Ltd.</strong>
-                        <br>13/25 New Avenue
-                        <br>Newtown upon River
-                        <br>45Y 73J
-                        <br>England
-                        <br>
-                        <strong>Great Britain</strong>
+                    <p><strong>iBebo Ltd.</strong>
+                        <br>Av. Prof. Luís Freire, 500 - Cidade Universitária
+                        <br>Recife
+                        <br>Pernambuco
+                        <strong>Brasil</strong>
                     </p>
 
-                    <a href="contact.html" class="btn btn-small btn-template-main">Go to contact page</a>
+                    <a href="contact.jsp" class="btn btn-small btn-template-main">Entre na página contato</a>
 
                     <hr class="hidden-md hidden-lg hidden-sm">
 
                 </div>
                 <!-- /.col-md-3 -->
 
-
-
-                <div class="col-md-3 col-sm-6">
-
-                    <h4>Photostream</h4>
-
-                    <div class="photostream">
-                        <div>
-                            <a href="#">
-                                <img src="img/detailsquare.jpg" class="img-responsive" alt="#">
-                            </a>
-                        </div>
-                        <div>
-                            <a href="#">
-                                <img src="img/detailsquare2.jpg" class="img-responsive" alt="#">
-                            </a>
-                        </div>
-                        <div>
-                            <a href="#">
-                                <img src="img/detailsquare3.jpg" class="img-responsive" alt="#">
-                            </a>
-                        </div>
-                        <div>
-                            <a href="#">
-                                <img src="img/detailsquare3.jpg" class="img-responsive" alt="#">
-                            </a>
-                        </div>
-                        <div>
-                            <a href="#">
-                                <img src="img/detailsquare2.jpg" class="img-responsive" alt="#">
-                            </a>
-                        </div>
-                        <div>
-                            <a href="#">
-                                <img src="img/detailsquare.jpg" class="img-responsive" alt="#">
-                            </a>
-                        </div>
-                    </div>
-
-                </div>
                 <!-- /.col-md-3 -->
             </div>
             <!-- /.container -->
@@ -569,11 +484,7 @@ _________________________________________________________ -->
         <div id="copyright">
             <div class="container">
                 <div class="col-md-12">
-                    <p class="pull-left">&copy; 2015. Your company / name goes here</p>
-                    <p class="pull-right">Template by <a href="https://bootstrapious.com">Bootstrapious</a> & <a href="https://remoteplease.com">Remote Please</a>
-                         <!-- Not removing these links is part of the license conditions of the template. Thanks for understanding :) If you want to use the template without the attribution links, you can do so after supporting further themes development at https://bootstrapious.com/donate  -->
-                    </p>
-
+                    <p class="pull-left">&copy; 2017. iBebo / PPSOO</p>
                 </div>
             </div>
         </div>

@@ -235,163 +235,151 @@
 
             <!-- *** LOGIN MODAL END *** -->
 
-        <div id="heading-breadcrumbs">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h1>Carrinho de compras</h1>
-                    </div>
-                    <div class="col-md-6">
-                        <ul class="breadcrumb">
-                            <li><a href="${pageContext.request.contextPath}/index.jsp">Home</a>
-                            </li>
-                            <li>Carrinho de compras</li>
-                        </ul>
+            <div id="heading-breadcrumbs">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h1>Carrinho de compras</h1>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="breadcrumb">
+                                <li><a href="${pageContext.request.contextPath}/index.jsp">Home</a>
+                                </li>
+                                <li>Carrinho de compras</li>
+                            </ul>
 
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div id="content">
-            <div class="container">
+            <div id="content">
+                <div class="container">
 
-                <div class="row">
-                    <div class="col-md-12">
-                        <p class="text-muted lead">Itens atuais do carrinho.</p>
-                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p class="text-muted lead">Itens atuais do carrinho.</p>
+                        </div>
 
 
-                    <div class="col-md-9 clearfix" id="basket">
+                        <div class="col-md-9 clearfix" id="basket">
 
-                        <div class="box">
+                            <div class="box">
 
-                            <form method="post" action="${pageContext.request.contextPath}/CarrinhoCompras">
+                                <form method="post" action="${pageContext.request.contextPath}/ConfirmarCompra">
+                                   
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th colspan="2">Produto</th>
+                                                        <th>Quantidade</th>
+                                                        <th>Preço</th>                                              
+                                                        <th colspan="2">Total</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <c:forEach var="produto" items="${detalhe_prod_carrinho}" varStatus="stat">
+                                                    <tr>
+                                                        <td>
+                                                            <a href="#">
+                                                                <img src="img/detailsquare.jpg" alt="White Blouse Armani">
+                                                            </a>
+                                                        </td>
+                                                        <td><a href="#">${produto.nomeProduto}</a>
+                                                        </td>
+                                                        <td>
+                                                            <input name="item${stat.index}" type="hidden" value="${produto.idProduto}"/>
+                                                            <input name="quantidade${stat.index}" type="number" value="1" class="form-control">
+                                                        </td>
+                                                        <td>R$ ${produto.precoProduto}</td>
+                                                        <td>$${produto.precoProduto}</td>
+                                                        
+                                                        </td>
+                                                    </tr>
+                                                   </c:forEach>
+                                                </tbody>
+                                                
+                                                <tfoot>
+                                                    <tr>
+                                                        <th colspan="5">Total</th>
+                                                        <th colspan="2">$00.00</th>
+                                                    </tr>
+                                                </tfoot>
+                                            </table>
+
+                                        </div>
+                                        <!-- /.table-responsive -->
+
+                                        <div class="box-footer">
+                                            <div class="pull-left">
+                                                <a href="javascript:window.history.go(-2)" class="btn btn-default"><i class="fa fa-chevron-left"></i> Continue comprando</a>
+                                            </div>
+                                            <div class="pull-right">
+                                                <a href="ExcluirProduto" class="btn btn-default"><i class="fa fa-trash-o"></i> Excluir carrinho</a>
+                                                <button type="submit" class="btn btn-template-main">Comprar <i class="fa fa-chevron-right"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    
+                                </form>
+
+                            </div>
+                            <!-- /.box -->
+
+
+
+                        </div>
+                        <!-- /.col-md-9 -->
+
+                        <div class="col-md-3">
+                            <div class="box" id="order-summary">
+                                <div class="box-header">
+                                    <h3>Resumo do pedido</h3>
+                                </div>
 
                                 <div class="table-responsive">
                                     <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th colspan="2">Produto</th>
-                                                <th>Quantidade</th>
-                                                <th>Preço</th>                                              
-                                                <th colspan="2">Total</th>
-                                            </tr>
-                                        </thead>
                                         <tbody>
                                             <tr>
-                                                <td>
-                                                    <a href="#">
-                                                        <img src="img/detailsquare.jpg" alt="White Blouse Armani">
-                                                    </a>
-                                                </td>
-                                                <td><a href="#">White Blouse Armani</a>
-                                                </td>
-                                                <td>
-                                                    <input type="number" value="2" class="form-control">
-                                                </td>
-                                                <td>$123.00</td>
-                                                <td>$246.00</td>
-                                                <td><a href="#"><i class="fa fa-trash-o"></i></a>
-                                                </td>
+                                                <td>Order subtotal</td>
+                                                <th>$446.00</th>
                                             </tr>
                                             <tr>
-                                                <td>
-                                                    <a href="#">
-                                                        <img src="img/basketsquare.jpg" alt="Black Blouse Armani">
-                                                    </a>
-                                                </td>
-                                                <td><a href="#">Black Blouse Armani</a>
-                                                </td>
-                                                <td>
-                                                    <input type="number" value="1" class="form-control">
-                                                </td>
-                                                <td>$200.00</td>
-                                                <td>$200.00</td>
-                                                <td><a href="#"><i class="fa fa-trash-o"></i></a>
-                                                </td>
+                                                <td>Shipping and handling</td>
+                                                <th>$10.00</th>
+                                            </tr>
+                                            <tr>
+                                                <td>Tax</td>
+                                                <th>$0.00</th>
+                                            </tr>
+                                            <tr class="total">
+                                                <td>Total</td>
+                                                <th>$456.00</th>
                                             </tr>
                                         </tbody>
-                                        <tfoot>
-                                            <tr>
-                                                <th colspan="5">Total</th>
-                                                <th colspan="2">$446.00</th>
-                                            </tr>
-                                        </tfoot>
                                     </table>
-
-                                </div>
-                                <!-- /.table-responsive -->
-
-                                <div class="box-footer">
-                                    <div class="pull-left">
-                                        <a href="${pageContext.request.contextPath}/Menu?acao=menu_produtos" class="btn btn-default"><i class="fa fa-chevron-left"></i> Continue comprando</a>
-                                    </div>
-                                    <div class="pull-right">
-                                        <button class="btn btn-default"><i class="fa fa-refresh"></i> Atualizar carrinho</button>
-                                        <button type="submit" class="btn btn-template-main">Comprar <i class="fa fa-chevron-right"></i>
-                                        </button>
-                                    </div>
                                 </div>
 
-                            </form>
-
-                        </div>
-                        <!-- /.box -->
-
-                        
-
-                    </div>
-                    <!-- /.col-md-9 -->
-
-                    <div class="col-md-3">
-                        <div class="box" id="order-summary">
-                            <div class="box-header">
-                                <h3>Resumo do pedido</h3>
-                            </div>
-
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <tbody>
-                                        <tr>
-                                            <td>Order subtotal</td>
-                                            <th>$446.00</th>
-                                        </tr>
-                                        <tr>
-                                            <td>Shipping and handling</td>
-                                            <th>$10.00</th>
-                                        </tr>
-                                        <tr>
-                                            <td>Tax</td>
-                                            <th>$0.00</th>
-                                        </tr>
-                                        <tr class="total">
-                                            <td>Total</td>
-                                            <th>$456.00</th>
-                                        </tr>
-                                    </tbody>
-                                </table>
                             </div>
 
                         </div>
+                        <!-- /.col-md-3 -->
 
                     </div>
-                    <!-- /.col-md-3 -->
 
                 </div>
-
+                <!-- /.container -->
             </div>
-            <!-- /.container -->
-        </div>
-        <!-- /#content -->
+            <!-- /#content -->
 
 
-        <!-- *** GET IT ***
-_________________________________________________________ -->
+            <!-- *** GET IT ***
+    _________________________________________________________ -->
 
 
 
-        <!-- *** GET IT END *** -->
+            <!-- *** GET IT END *** -->
 
 
             <!-- *** FOOTER ***

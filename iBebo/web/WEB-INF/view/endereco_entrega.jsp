@@ -256,13 +256,12 @@
 
                             <div class="box">
                                 <c:forEach var="end" items="${endereco_confirma}">
-                                    <form method="post" action="shop-checkout2.html">
+                                    <form method="post" action="ConfirmarEndereco">
 
                                         <ul class="nav nav-pills nav-justified">
                                             <li class="active"><a href="#"><i class="fa fa-map-marker"></i><br>Endereço</a>
                                             </li>
-                                            <li class="disabled"><a href="#"><i class="fa fa-truck"></i><br>Entrega</a>
-                                            </li>
+
                                             <li class="disabled"><a href="#"><i class="fa fa-money"></i><br>Pagamento</a>
                                             </li>
                                             <li class="disabled"><a href="#"><i class="fa fa-eye"></i><br>Confirmar compra</a>
@@ -273,13 +272,13 @@
                                             <div class="row">
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
-                                                        <label for="firstname">Firstname</label>
+                                                        <label for="firstname">Nome</label>
                                                         <input type="text" class="form-control" id="firstname">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
-                                                        <label for="lastname">Lastname</label>
+                                                        <label for="lastname">Sobrenome</label>
                                                         <input type="text" class="form-control" id="lastname">
                                                     </div>
                                                 </div>
@@ -336,7 +335,7 @@
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
-                                                        <label for="phone">Telephone</label>
+                                                        <label for="phone">Telone</label>
                                                         <input type="text" class="form-control" id="phone">
                                                     </div>
                                                 </div>
@@ -417,7 +416,7 @@
             <!-- *** GET IT ***
     _________________________________________________________ -->
 
-  
+
 
 
             <!-- *** GET IT END *** -->

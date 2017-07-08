@@ -271,6 +271,7 @@
                                         <ul class="list-style-none">
                                             <li>Bares</li>
                                             <li>Restaurantes</li>
+                                            <li>Depósitos</li>
                                         </ul>
                                     </div>
 

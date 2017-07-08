@@ -7,7 +7,6 @@ package controller;
  */
 import DAO.UsuarioDAO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -43,6 +42,7 @@ public class LoginServlet extends HttpServlet {
 
         if (usuario != null) {
 
+            //PROXY: Através do objeto usuário, é acessado o objeto consumidor.
             if (usuario.getSenhaUsuario().equals(senha)) {
                 HttpSession session = request.getSession();
                 session.setAttribute("usuarioLogado", usuario);

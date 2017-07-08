@@ -5,6 +5,7 @@
  */
 package controller;
 
+import DAO.ProdutoDAO;
 import DAO.TipoDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -15,6 +16,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 import model.Endereco;
 import model.Tipo;
 import model.Usuario;
@@ -34,27 +37,33 @@ public class CarrinhoCompras extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    List lista;
+    List lista_produtos = new ArrayList();
+    List lista_teste = new ArrayList();
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       RequestDispatcher rd;
-       String tipoProduto = request.getParameter("tipo.idTipo");
        
-        Usuario user = (Usuario) request.getSession().getAttribute("usuarioLogado");
-        if (user == null) {
-            rd = request.getRequestDispatcher("Menu?acao=Cadastrar_usuario");
-            rd.forward(request, response);
-            
+
+        RequestDispatcher rd = null;
+        ProdutoDAO produtoDao = new ProdutoDAO();
+        Integer id_produto_carrinho = (Integer) request.getSession().getAttribute("id_produto");
+        if (id_produto_carrinho != null) {
+            lista = produtoDao.getSingle(id_produto_carrinho);
+            Object produto = lista.get(0);
+            lista_produtos.add(produto);
+            request.getSession().setAttribute("lista_produto", lista_produtos);
+            request.setAttribute("detalhe_prod_carrinho", lista_produtos);
+            request.getSession().setAttribute("id_produto", null);
+
         } else {
-            Endereco endereco = user.getIdEnderecoUsuario();
-            List lista_end = new ArrayList();
-            lista_end.add(endereco);
-            TipoDAO tipo = new TipoDAO();
-            List<Tipo> listaTipo = tipo.listarTipo();
-            request.setAttribute("endereco_confirma", lista_end);
-            rd = request.getRequestDispatcher("Menu?acao=endereco");
-            rd.forward(request, response);
-            response.sendRedirect("model/Pedido.java");
+
+            lista_teste = (List) request.getSession().getAttribute("lista_produto");
+            request.setAttribute("detalhe_prod_carrinho", lista_teste);
         }
+        rd = request.getRequestDispatcher("WEB-INF/view/carrinho_compras.jsp");
+        rd.forward(request, response);
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -1,10 +1,14 @@
 package model;
 
-public class Whisky extends Coquetel 
+public class Whisky extends Produto 
 {
-	public Whisky()
-	{
-		nome = "wiskhey";
-		preco = 50.0;
-	}
+    
+    public Whisky(Tipo tipo)
+            
+    {
+        Whisky whisky = null;
+        
+        whisky.setIdTipoProduto(tipo);
+    }
+	
 }

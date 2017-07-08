@@ -40,12 +40,15 @@ public class Compra implements Serializable {
     @Basic(optional = false)
     @Column(name = "id_compra")
     private Integer idCompra;
+    
     @JoinColumn(name = "id_consumidor_compra", referencedColumnName = "id_consumidor")
     @ManyToOne(optional = false)
     private Consumidor idConsumidorCompra;
+    
     @JoinColumn(name = "id_produto_compra", referencedColumnName = "id_produto")
     @ManyToOne
     private Produto idProdutoCompra;
+    
     @OneToMany(mappedBy = "idCompraPagamento")
     private Collection<Pagamento> pagamentoCollection;
 

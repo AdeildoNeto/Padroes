@@ -52,7 +52,9 @@ public class Menu extends HttpServlet {
         EstabelecimentoDAO estabelecimentoDao = new EstabelecimentoDAO();
 
         switch (acao) {
-
+            
+             //BRIDGE
+            
             case "Cadastrar_usuario":
                 rd = request.getRequestDispatcher("WEB-INF/view/cadastrar_usuario.jsp");
                 rd.forward(request, response);
@@ -83,6 +85,8 @@ public class Menu extends HttpServlet {
                 break;
             case "menu_produtos":
                 Integer id_estabelecimento = Integer.parseInt(request.getParameter("id"));
+                Object idEstab = id_estabelecimento;
+                getServletContext().setAttribute("id_estabelecimento", idEstab);
                 request.setAttribute("lista_tipo", tipoDao.listar());
                 request.setAttribute("lista_prod", produtoDao.listaEstab(estabelecimentoDao.Single(id_estabelecimento)));
                 rd = request.getRequestDispatcher("WEB-INF/view/menu_produtos.jsp");
@@ -103,13 +107,39 @@ public class Menu extends HttpServlet {
                 response.sendRedirect("CarrinhoCompras");
 
                 break;
+              case "carrinho_limpo":
+                  rd = request.getRequestDispatcher("WEB-INF/view/carrinho_compras.jsp");
+                rd.forward(request, response);
+                  break;
             case "menu_produtos_filtro":
-                Integer id_produto_filtrado = Integer.parseInt(request.getParameter("id"));
-                
+                Integer id_produto_filtrado = Integer.parseInt(request.getParameter("id_filtro"));
+                Integer id_estabelecimento_filtrado = (Integer) getServletContext().getAttribute("id_estabelecimento");
+                request.setAttribute("lista_tipo", tipoDao.listar());
+                request.setAttribute("lista_prod", produtoDao.listaFiltrada(estabelecimentoDao.Single(id_estabelecimento_filtrado), tipoDao.Single(id_produto_filtrado)));
+
+                rd = request.getRequestDispatcher("WEB-INF/view/menu_produtos.jsp");
+                rd.forward(request, response);
 
                 break;
+            case "menu_produtos_completo":
+                Integer id_estabelecimento_completo = (Integer) getServletContext().getAttribute("id_estabelecimento");
+                request.setAttribute("lista_tipo", tipoDao.listar());
+                request.setAttribute("lista_prod", produtoDao.listaEstab(estabelecimentoDao.Single(id_estabelecimento_completo)));
+
+                rd = request.getRequestDispatcher("WEB-INF/view/menu_produtos.jsp");
+                rd.forward(request, response);
+
             case "endereco":
                 rd = request.getRequestDispatcher("WEB-INF/view/endereco_entrega.jsp");
+                rd.forward(request, response);
+                break;
+            case "confirmar_compra": 
+                request.setAttribute("prod_carrinho_confirmar", request.getSession().getAttribute("lista_produto"));
+                rd = request.getRequestDispatcher("WEB-INF/view/confirmar_compra.jsp");
+                rd.forward(request, response);
+                break;
+            case "meus_pedidos":
+                rd = request.getRequestDispatcher("WEB-INF/view/pedidos.jsp");
                 rd.forward(request, response);
                 break;
             default:

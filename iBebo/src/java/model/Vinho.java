@@ -1,16 +1,14 @@
 package model;
 
-public class Vinho extends Coquetel 
+public class Vinho extends Produto 
 {
-	public Vinho()
-	{
-		nome = "vinho";
-		preco = 30.0;
-	}
 
-	public boolean setGelo() 
-	{
-		return gelo = true;
-	
-	}
+        public Vinho(Tipo tipo)
+        {
+           Vinho vinho = null;
+           
+            vinho.setIdTipoProduto(tipo);
+
+        }
 }
+

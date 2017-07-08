@@ -26,6 +26,7 @@ public class ConsumidorDAO {
      public Consumidor getSingle(String login) {
          EntityManager em = EMF.createEntityManager();
         
+         //PROXY: LOGIN
         String jpql = "SELECT u FROM Consumidor u where u.loginUsuario = ?1";
         Query query = em.createQuery(jpql);
         query.setParameter(1, login);

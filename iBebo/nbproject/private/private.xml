@@ -2,6 +2,23 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/home/aldo_neto/iBebo/iBebo/src/java/model/Whisky.java</file>
+            <file>file:/home/aldo_neto/iBebo/iBebo/src/java/model/Pedido.java</file>
+            <file>file:/home/aldo_neto/iBebo/iBebo/src/java/controller/EditarCadastroServlet.java</file>
+            <file>file:/home/aldo_neto/iBebo/iBebo/web/WEB-INF/view/menu_produtos.jsp</file>
+            <file>file:/home/aldo_neto/iBebo/iBebo/web/WEB-INF/view/contato.jsp</file>
+            <file>file:/home/aldo_neto/iBebo/iBebo/src/java/controller/Menu.java</file>
+            <file>file:/home/aldo_neto/iBebo/iBebo/src/java/controller/AlterarSenhaServlet.java</file>
+            <file>file:/home/aldo_neto/iBebo/iBebo/src/java/model/Vodka.java</file>
+            <file>file:/home/aldo_neto/iBebo/iBebo/src/java/controller/LoginServlet.java</file>
+            <file>file:/home/aldo_neto/iBebo/iBebo/src/java/model/Coquetel.java</file>
+            <file>file:/home/aldo_neto/iBebo/iBebo/src/java/DAO/ConsumidorDAO.java</file>
+            <file>file:/home/aldo_neto/iBebo/iBebo/web/WEB-INF/view/minha_conta.jsp</file>
+            <file>file:/home/aldo_neto/iBebo/iBebo/web/index.jsp</file>
+            <file>file:/home/aldo_neto/iBebo/iBebo/src/java/model/CoquetelDecorator.java</file>
+            <file>file:/home/aldo_neto/iBebo/iBebo/src/java/model/Vinho.java</file>
+            <file>file:/home/aldo_neto/iBebo/iBebo/src/java/controller/BuscarEstabelecimentos.java</file>
+        </group>
     </open-files>
 </project-private>

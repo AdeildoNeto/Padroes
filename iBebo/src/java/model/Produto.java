@@ -39,6 +39,11 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Produto.findByVolAlcoolProduto", query = "SELECT p FROM Produto p WHERE p.volAlcoolProduto = :volAlcoolProduto")})
 public class Produto implements Serializable {
 
+    @Column(name = "produto_qtd")
+    private Integer produtoQtd;
+    @Column(name = "produto_detalhe")
+    private String produtoDetalhe;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -167,6 +172,22 @@ public class Produto implements Serializable {
     @Override
     public String toString() {
         return "model.Produto[ idProduto=" + idProduto + " ]";
+    }
+
+    public Integer getProdutoQtd() {
+        return produtoQtd;
+    }
+
+    public void setProdutoQtd(Integer produtoQtd) {
+        this.produtoQtd = produtoQtd;
+    }
+
+    public String getProdutoDetalhe() {
+        return produtoDetalhe;
+    }
+
+    public void setProdutoDetalhe(String produtoDetalhe) {
+        this.produtoDetalhe = produtoDetalhe;
     }
     
 }

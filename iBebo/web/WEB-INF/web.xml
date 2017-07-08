@@ -39,6 +39,26 @@
         <servlet-name>AlterarSenhaServlet</servlet-name>
         <servlet-class>controller.AlterarSenhaServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ConfirmarCompra</servlet-name>
+        <servlet-class>controller.ConfirmarCompra</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ConfirmarEndereco</servlet-name>
+        <servlet-class>controller.ConfirmarEndereco</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ConfirmarPagamento</servlet-name>
+        <servlet-class>controller.ConfirmarPagamento</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SalvarCompra</servlet-name>
+        <servlet-class>controller.SalvarCompra</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ExcluirProduto</servlet-name>
+        <servlet-class>controller.ExcluirProduto</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -74,6 +94,26 @@
     <servlet-mapping>
         <servlet-name>AlterarSenhaServlet</servlet-name>
         <url-pattern>/AlterarSenhaServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ConfirmarCompra</servlet-name>
+        <url-pattern>/ConfirmarCompra</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ConfirmarEndereco</servlet-name>
+        <url-pattern>/ConfirmarEndereco</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ConfirmarPagamento</servlet-name>
+        <url-pattern>/ConfirmarPagamento</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SalvarCompra</servlet-name>
+        <url-pattern>/SalvarCompra</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExcluirProduto</servlet-name>
+        <url-pattern>/ExcluirProduto</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

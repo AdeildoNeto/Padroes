@@ -274,10 +274,10 @@
                             <div class="panel-body">
                                 <ul class="nav nav-pills nav-stacked category-menu">
                                     <li>
-                                        <a href="shop-category.html">Tudo <span class="badge pull-right"></span></a>
+                                        <a href="Menu?acao=menu_produtos_completo">Tudo <span class="badge pull-right"></span></a>
                                         <ul>
                                             <c:forEach var="tipo" items="${lista_tipo}">
-                                            <li><a href="shop-category.html${tipo.idTipo}">${tipo.nomeTipo}</a>
+                                            <li><a href="Menu?acao=menu_produtos_filtro&id_filtro=${tipo.idTipo}">${tipo.nomeTipo}</a>
                                             </li>
                                             </c:forEach>
                                         </ul>

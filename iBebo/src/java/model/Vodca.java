@@ -11,11 +11,12 @@ package model;
  */
 public class Vodca extends Produto {
     
-    Vodca vodca;
-    
-    
     public Vodca(Tipo tipo)
     {
+        Vodca vodca = null;
+        
         vodca.setIdTipoProduto(tipo);
     }
+    
+   
 }

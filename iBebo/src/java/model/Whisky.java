@@ -2,11 +2,11 @@ package model;
 
 public class Whisky extends Produto 
 {
-    
+    public Whisky(){}
     public Whisky(Tipo tipo)
             
     {
-        Whisky whisky = null;
+        Whisky whisky = new Whisky();
         
         whisky.setIdTipoProduto(tipo);
     }

@@ -45,6 +45,7 @@ public class LoginServlet extends HttpServlet {
             //PROXY: Através do objeto usuário, é acessado o objeto consumidor.
             if (usuario.getSenhaUsuario().equals(senha)) {
                 HttpSession session = request.getSession();
+
                 session.setAttribute("usuarioLogado", usuario);
 
                 switch (usuario.getDtype()) {
@@ -98,7 +99,6 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-
 
     }
 

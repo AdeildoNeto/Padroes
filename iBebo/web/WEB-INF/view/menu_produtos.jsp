@@ -128,12 +128,12 @@
                             <div class="navbar-collapse collapse" id="navigation">
 
                                 <ul class="nav navbar-nav navbar-right">
-                                 
+
                                     <!-- ========== FULL WIDTH MEGAMENU ================== -->
-                                   
+
                                     <li class="dropdown use-yamm yamm-fw">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Sobre <b class="caret"></b></a>
-                                        
+
                                         <ul class="dropdown-menu">
                                             <li>
                                                 <div class="yamm-content">
@@ -142,7 +142,7 @@
                                                             <img src="img/template-homepage.png" class="img-responsive hidden-xs" alt="">
                                                         </div>
                                                         <div class="col-sm-3">
-                                                            
+
                                                             <ul>
                                                                 <li><a href="index.html">Quem Somos</a>
                                                                 </li>
@@ -156,8 +156,8 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    
-                                    
+
+
                                     <!-- ========== FULL WIDTH MEGAMENU END ================== -->
 
                                     <li class="dropdown">
@@ -223,7 +223,7 @@
                                 </p>
 
                             </form>
-                            
+
                             <p class="text-center text-muted">Não é cadastrado?</p>
                             <p class="text-center text-muted"><a href="Menu?acao=Cadastrar_usuario"><strong>Cadastre-se agora</strong></a>!</p>
 
@@ -313,7 +313,7 @@
                                 <div class="product">
                                     <div class="image">
                                         <a href="Menu?acao=detalhe_produto&id=${produto.idProduto}">
-                                            <img src="img/product1.jpg" alt="" class="img-responsive image1">
+                                            <img src="img/${produto.imagem}" alt="" class="img-responsive image1" style="width: 50px; height: 150px; margin-left:auto; margin-right:auto">
                                         </a>
                                     </div>
                                     <!-- /.image -->

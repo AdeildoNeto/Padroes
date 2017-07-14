@@ -99,7 +99,7 @@ public class CadastrarUsuarioServlet extends HttpServlet {
                 consumidor_cadastro.setSenhaUsuario(senha);
                 consumidor_cadastro.setDataNascimentoConsumidor(data_nascimento);
                 consumidor_cadastro.setSexoConsumidor(sexo_consumidor);
-                
+                consumidor_cadastro.setDtype("Consumidor");
                 consumidorDao.inserir(consumidor_cadastro);
              //   erros.add("Usuário Cadastrado");
 

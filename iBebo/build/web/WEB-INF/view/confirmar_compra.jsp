@@ -292,7 +292,7 @@
                                                     </td>
                                                     <td><a href="#">${produto.nomeProduto}</a>
                                                     </td>
-                                                    <td>1</td>
+                                                    <td>${produto.qtdComprada}</td>
                                                     <td>R$ ${produto.precoProduto}</td>
                                                     <td>$${produto.precoProduto}</td>
                                                 </tr>

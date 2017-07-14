@@ -45,6 +45,7 @@ public class Menu extends HttpServlet {
         RequestDispatcher rd = null;
         String acao = request.getParameter("acao");
 
+        Consumidor consumidor = new Consumidor();
         ConsumidorDAO consumidorDao = new ConsumidorDAO();
         EnderecoDAO enderecoDao = new EnderecoDAO();
         ProdutoDAO produtoDao = new ProdutoDAO();
@@ -84,7 +85,7 @@ public class Menu extends HttpServlet {
                 rd.forward(request, response);
                 break;
             case "menu_produtos":
-                Integer id_estabelecimento = Integer.parseInt(request.getParameter("id"));
+                Integer id_estabelecimento = Integer.parseInt(request.getParameter("id_estb"));
                 Object idEstab = id_estabelecimento;
                 getServletContext().setAttribute("id_estabelecimento", idEstab);
                 request.setAttribute("lista_tipo", tipoDao.listar());
@@ -130,6 +131,7 @@ public class Menu extends HttpServlet {
                 rd.forward(request, response);
 
             case "endereco":
+                
                 rd = request.getRequestDispatcher("WEB-INF/view/endereco_entrega.jsp");
                 rd.forward(request, response);
                 break;
@@ -139,6 +141,7 @@ public class Menu extends HttpServlet {
                 rd.forward(request, response);
                 break;
             case "meus_pedidos":
+                request.setAttribute("lista_pedidos", request.getSession().getAttribute("meus_pedidos"));
                 rd = request.getRequestDispatcher("WEB-INF/view/pedidos.jsp");
                 rd.forward(request, response);
                 break;

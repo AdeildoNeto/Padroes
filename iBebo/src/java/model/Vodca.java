@@ -10,10 +10,10 @@ package model;
  * @author aldo_neto
  */
 public class Vodca extends Produto {
-    
+    public Vodca(){}
     public Vodca(Tipo tipo)
     {
-        Vodca vodca = null;
+        Vodca vodca = new Vodca();
         
         vodca.setIdTipoProduto(tipo);
     }

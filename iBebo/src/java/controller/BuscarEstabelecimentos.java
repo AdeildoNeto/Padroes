@@ -48,7 +48,7 @@ public class BuscarEstabelecimentos extends HttpServlet {
         String dType = "Estabelecimento";
 
         List listaEndereco = enderecoDao.listaCep(cep);
-        List<Usuario> listaEstabelecimento = new ArrayList();
+        List<Estabelecimento> listaEstabelecimento = new ArrayList();
 
         if (listaEndereco.get(0)!= null) {
             
@@ -56,16 +56,16 @@ public class BuscarEstabelecimentos extends HttpServlet {
                 
                 endereco = (Endereco) listaEndereco.get(i);
                 
-                usuario = usuarioDao.SingleEnd(endereco);
-                String dType_estabelecimento = usuario.getDtype();
+                estabelecimento = estabelecimentoDao.SingleEnd(endereco);
+                String dType_estabelecimento = estabelecimento.getDtype();
                 if (!dType_estabelecimento.equals(dType)) 
                 {
-                    usuario = null;
+                    estabelecimento = null;
                     
                 }
                 else{
                    
-                    listaEstabelecimento.add(usuario);
+                    listaEstabelecimento.add(estabelecimento);
                 }
             }
         }

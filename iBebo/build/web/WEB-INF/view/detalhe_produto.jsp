@@ -311,8 +311,8 @@
 
                         <div class="row" id="productMain">
                             <div class="col-sm-6">
-                                <div id="mainImage">
-                                    <img src="img/detailbig1.jpg" alt="" class="img-responsive">
+                                <div id="mainImage2">
+                                    <img src="img/${produto_detalhe.imagem}" alt="" class="img-responsive" style="width: 250px; height: 450px;">
                                 </div>
 
                             </div>
@@ -337,17 +337,17 @@
                                 <div class="row" id="thumbs">
                                     <div class="col-xs-4">
                                         <a href="img/detailbig1.jpg" class="thumb">
-                                            <img src="img/detailsquare.jpg" alt="" class="img-responsive">
+                                            <img src="img/${produto_detalhe.imagem}" alt="" class="img-responsive">
                                         </a>
                                     </div>
                                     <div class="col-xs-4">
                                         <a href="img/detailbig2.jpg" class="thumb">
-                                            <img src="img/detailsquare2.jpg" alt="" class="img-responsive">
+                                            <img src="img/${produto_detalhe.imagem}" alt="" class="img-responsive">
                                         </a>
                                     </div>
                                     <div class="col-xs-4">
                                         <a href="img/detailbig3.jpg" class="thumb">
-                                            <img src="img/detailsquare3.jpg" alt="" class="img-responsive">
+                                            <img src="img/${produto_detalhe.imagem}" alt="" class="img-responsive">
                                         </a>
                                     </div>
                                 </div>

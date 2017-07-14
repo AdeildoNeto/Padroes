@@ -12,6 +12,7 @@
     <class>model.Estabelecimento</class>
     <class>model.Pagamento</class>
     <class>model.TipoEstabelecimento</class>
+    <class>model.Produto_1</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/ibebo_db?zeroDateTimeBehavior=convertToNull"/>

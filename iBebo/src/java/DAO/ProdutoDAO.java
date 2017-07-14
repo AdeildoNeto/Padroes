@@ -23,6 +23,19 @@ public class ProdutoDAO {
 
     private final static EntityManagerFactory EMF = Persistence.createEntityManagerFactory("iBeboPU");
 
+    public Produto getSingleProd(int id) {
+        EntityManager em = EMF.createEntityManager();
+
+        String jpql = "SELECT u FROM Produto u where u.idProduto = ?1";
+        Query query = em.createQuery(jpql);
+        query.setParameter(1, id);
+         try{
+        Produto produto = (Produto) query.getSingleResult(); 
+        return produto;
+        }catch(NoResultException e){
+        return null;
+        }
+    }
     public List<Produto> getSingle(int id) {
         EntityManager em = EMF.createEntityManager();
 

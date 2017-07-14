@@ -14,6 +14,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -33,6 +34,14 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Compra.findAll", query = "SELECT c FROM Compra c")
     , @NamedQuery(name = "Compra.findByIdCompra", query = "SELECT c FROM Compra c WHERE c.idCompra = :idCompra")})
 public class Compra implements Serializable {
+
+   /* @Lob
+    @Column(name = "produtos")
+    private Object produtos;*/
+    @Column(name = "produtosLista")
+    private String produtosLista;
+
+    
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -116,5 +125,23 @@ public class Compra implements Serializable {
     public String toString() {
         return "model.Compra[ idCompra=" + idCompra + " ]";
     }
+
+   /* public Object getProdutos() {
+        return produtos;
+    }
+
+    public void setProdutos(Object produtos) {
+        this.produtos = produtos;
+    }
+*/
+    public String getProdutosLista() {
+        return produtosLista;
+    }
+
+    public void setProdutosLista(String produtosLista) {
+        this.produtosLista = produtosLista;
+    }
+
+  
     
 }

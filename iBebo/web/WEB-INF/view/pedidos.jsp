@@ -281,51 +281,17 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <c:forEach var="pedidos" items="${lista_pedidos}">
                                         <tr>
-                                            <th># 1735</th>
-                                            <td>22/06/2013</td>
-                                            <td>$ 150.00</td>
+                                            <th># ${pedidos.idCompra}</th>
+                                            <td></td>
+                                            <td>${pedidos.idCompra}</td>
                                             <td><span class="label label-info">Being prepared</span>
                                             </td>
                                             <td><a href="customer-order.html" class="btn btn-template-main btn-sm">View</a>
                                             </td>
-                                        </tr>
-                                        <tr>
-                                            <th># 1735</th>
-                                            <td>22/06/2013</td>
-                                            <td>$ 150.00</td>
-                                            <td><span class="label label-info">Being prepared</span>
-                                            </td>
-                                            <td><a href="customer-order.html" class="btn btn-template-main btn-sm">View</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th># 1735</th>
-                                            <td>22/06/2013</td>
-                                            <td>$ 150.00</td>
-                                            <td><span class="label label-success">Received</span>
-                                            </td>
-                                            <td><a href="customer-order.html" class="btn btn-template-main btn-sm">View</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th># 1735</th>
-                                            <td>22/06/2013</td>
-                                            <td>$ 150.00</td>
-                                            <td><span class="label label-danger">Cancelled</span>
-                                            </td>
-                                            <td><a href="customer-order.html" class="btn btn-template-main btn-sm">View</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th># 1735</th>
-                                            <td>22/06/2013</td>
-                                            <td>$ 150.00</td>
-                                            <td><span class="label label-warning">On hold</span>
-                                            </td>
-                                            <td><a href="customer-order.html" class="btn btn-template-main btn-sm">View</a>
-                                            </td>
-                                        </tr>
+                                        </tr> 
+                                        </c:forEach>
                                     </tbody>
                                 </table>
                             </div>

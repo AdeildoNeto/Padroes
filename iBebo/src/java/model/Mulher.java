@@ -9,6 +9,10 @@ package model;
  *
  * @author aldo_neto
  */
-public  abstract class ProdutoDecorator extends Produto{
-    
+public class Mulher extends Pessoa {
+ 
+    public Mulher(String nome) {
+		this.nome = nome;
+		System.out.println(“Olá Senhora ” + this.nome);
+	}
 }

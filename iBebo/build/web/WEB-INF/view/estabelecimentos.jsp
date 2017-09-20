@@ -261,13 +261,13 @@
                     <div class="col-md-3 col-sm-4">
                         <div class="product">
                             <div class="image">
-                                <a href="Menu?acao=menu_produtos&id=${estabelecimento.idUsuario}">
-                                    <img src="img/product1.jpg" alt="" class="img-responsive image1">
+                                <a href="Menu?acao=menu_produtos&id_estb=${estabelecimento.idUsuario}">
+                                    <img src="img/${estabelecimento.imagem}" alt="" class="img-responsive image1">
                                 </a>
                             </div>
                             <!-- /.image -->
                             <div class="text">
-                                <h3><a href="Menu?acao=menu_produtos&id=${estabelecimento.idUsuario}">${estabelecimento.nomeUsuario}</a></h3>
+                                <h3><a href="Menu?acao=menu_produtos&id_estb=${estabelecimento.idUsuario}">${estabelecimento.nomeUsuario}</a></h3>
                                 <p class="price">Detalhes do estabelecimento</p>
                             </div>
                             <!-- /.text -->

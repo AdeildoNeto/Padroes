@@ -14,11 +14,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -38,7 +40,13 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Produto.findByAlcoolProduto", query = "SELECT p FROM Produto p WHERE p.alcoolProduto = :alcoolProduto")
     , @NamedQuery(name = "Produto.findByVolAlcoolProduto", query = "SELECT p FROM Produto p WHERE p.volAlcoolProduto = :volAlcoolProduto")})
 public class Produto implements Serializable {
-
+    
+    
+    @Column(name = "imagem")
+    private String imagem;
+    @Transient
+    private Integer qtdComprada;
+    
     @Column(name = "produto_qtd")
     private Integer produtoQtd;
     @Column(name = "produto_detalhe")
@@ -188,6 +196,21 @@ public class Produto implements Serializable {
 
     public void setProdutoDetalhe(String produtoDetalhe) {
         this.produtoDetalhe = produtoDetalhe;
+    }
+    
+    public Integer getQtdComprada() {
+        return qtdComprada;
+    }
+  public void setQtdComprada(Integer qtdComprada) {
+        this.qtdComprada = qtdComprada;
+    }
+  
+  public String getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
     }
     
 }

@@ -38,6 +38,9 @@ public class Estabelecimento extends Usuario implements Serializable {
  //   @Basic(optional = false)
   //  @Column(name = "id_estabelecimento")
  ///   private Integer idEstabelecimento;
+    @Column(name = "imagem")
+    private String imagem;
+    
     @OneToMany(mappedBy = "idEstabelecimentoProduto")
     private Collection<Produto> produtoCollection;
     @JoinColumn(name = "id_tipo_estabelecimento", referencedColumnName = "id_tipo_estabelecimento")
@@ -112,4 +115,11 @@ public class Estabelecimento extends Usuario implements Serializable {
         return "model.Estabelecimento[ idEstabelecimento=" + idEstabelecimento + " ]";
     }
     */
+     public String getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
+    }
 }
